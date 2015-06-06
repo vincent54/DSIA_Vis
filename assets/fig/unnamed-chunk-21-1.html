@@ -1,0 +1,145 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css'>
+    
+    <script src='http://code.jquery.com/jquery-1.10.2.min.js' type='text/javascript'></script>
+    <script src='http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <table id = 'chart196757f1546e' class = 'rChart datatables'></table>    
+    <script type="text/javascript" charset="utf-8">
+  var chartParamschart196757f1546e = {
+ "dom": "chart196757f1546e",
+"width":    800,
+"height":    400,
+"table": {
+ "aaData": [
+ [
+ "臺北市",
+"文山區",
+"房地(土地+建物)",
+"臺北市文山區景華街82巷7弄15號",
+ 28.67 
+],
+[
+ "臺北市",
+"中正區",
+"房地(土地+建物)",
+"臺北市中正區羅斯福路二段45號",
+ 11.45 
+],
+[
+ "臺北市",
+"文山區",
+"房地(土地+建物)+車位",
+"臺北市文山區萬芳路107巷15號",
+ 41.23 
+],
+[
+ "臺北市",
+"文山區",
+"車位",
+"臺北市文山區興隆路三段181巷75號",
+   0.7 
+],
+[
+ "臺北市",
+"文山區",
+"房地(土地+建物)",
+"臺北市文山區景福街54巷5弄15號",
+  9.16 
+],
+[
+ "臺北市",
+"文山區",
+"房地(土地+建物)",
+"臺北市文山區光輝路50巷3弄15號",
+ 50.62 
+],
+[
+ "臺北市",
+"文山區",
+"房地(土地+建物)+車位",
+"臺北市文山區福興路106巷45號",
+ 26.63 
+],
+[
+ "臺北市",
+"萬華區",
+"房地(土地+建物)",
+"臺北市萬華區西園路二段285號",
+  25.8 
+],
+[
+ "臺北市",
+"中正區",
+"房地(土地+建物)",
+"臺北市中正區忠孝東路一段15號",
+  16.4 
+],
+[
+ "臺北市",
+"萬華區",
+"車位",
+"臺北市萬華區德昌街135號",
+  3.66 
+] 
+],
+"aoColumns": [
+ {
+ "sTitle": "縣市" 
+},
+{
+ "sTitle": "鄉鎮市區" 
+},
+{
+ "sTitle": "交易標的" 
+},
+{
+ "sTitle": "土地區段位置或建物區門牌" 
+},
+{
+ "sTitle": "土地移轉總面積平方公尺" 
+} 
+] 
+},
+"id": "chart196757f1546e" 
+}
+  $('#' + chartParamschart196757f1546e.id).removeClass("rChart")
+
+  $(document).ready(function() {
+		drawDataTable(chartParamschart196757f1546e)
+	});
+  function drawDataTable(chartParams){
+    var dTable = $('#' + chartParams.dom).dataTable(
+      chartParams.table
+    );
+    //first use rCharts width
+  	$('#'+chartParams.id+"_wrapper").css("width",chartParams.width)  
+		$('#'+chartParams.id+"_wrapper").css("width",chartParams.table.width)
+    
+    //then if specified change to table width
+    $('#'+chartParams.id+"_wrapper").css("margin-left", "auto");
+    $('#'+chartParams.id+"_wrapper").css("margin-right", "auto");
+		dTable.fnAdjustColumnSizing();
+  }
+		
+</script>
+    
+    <script></script>    
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://timelyportfolio.github.io/rChartsExtra/d3pie/js/d3pie.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart239f31951335' class = 'rChart d3pie'></div>    
+    <script>
+function drawchart239f31951335(){ 
+  var params = {
+ "dom": "chart239f31951335",
+"width":    800,
+"height":    400,
+"chartspec": {
+ "header": {
+ "title": {
+ "text": "成交建物類型" 
+} 
+},
+"data": {
+ "content": {
+ "label": [ "廠辦", "透天厝", "店面", "辦公商業大樓", "套房", "華廈", "公寓", "住宅大樓" ],
+"value": [ 5, 22, 29, 35, 103, 186, 213, 248 ] 
+} 
+},
+"labels": {
+ "lines": {
+ "style": "straight" 
+} 
+} 
+},
+"id": "chart239f31951335" 
+};
+  
+  //rCharts defaults to send toJSON as columns
+  //instead of the expected records for d3pie
+  //do the transform the hard way for now
+  function columnsToRecords(data){
+    var tempdata;
+    //avoid lodash for now
+    datakeys = Object.keys(data)
+    tempdata = data[datakeys[1]].map(function(d,i){
+      var tempobj = {}
+      datakeys.forEach(function(key){
+        tempobj[key] = data[key][i]
+      })
+      return tempobj
+    })
+    return tempdata;
+  }
+  
+  params.chartspec.data.content = columnsToRecords(params.chartspec.data.content);
+  
+  var pie = new d3pie("#" + params.dom, params.chartspec);
+  return pie;
+};
+
+var chart239f31951335 = drawchart239f31951335();
+</script>
+    
+    <script></script>    
+  </body>
+</html>

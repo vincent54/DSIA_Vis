@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2015 DSIA</title>
+  <meta charset="utf-8">
+  <meta name="description" content="2015 DSIA">
+  <meta name="author" content="林文政">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/magula.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/interactive/css/aceeditor.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+<link rel=stylesheet href="./assets/css/default.css"></link>
+<link rel=stylesheet href="./assets/css/fonts.css"></link>
+<link rel=stylesheet href="./assets/css/phone.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+<link rel=stylesheet href="./assets/css/slidify.css"></link>
+<link rel=stylesheet href="./assets/css/smallcode.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/highcharts/js/jquery-1.9.1.min.js"></script>
+<script src="libraries/widgets/highcharts/js/highcharts.js"></script>
+<script src="libraries/widgets/highcharts/js/highcharts-more.js"></script>
+<script src="libraries/widgets/highcharts/js/exporting.js"></script>
+<script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>2015 DSIA</h1>
+    <h2>視覺化設計工作坊</h2>
+    <p>林文政<br/>臺灣資料科學與商業應用協會 秘書長</p>
+  </hgroup>
+  <article></article>  
+  <footer class = 'license'>
+    <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
+    </a>
+  </footer>
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>動機</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>透過<a href="http://data.gov.tw/">政府資料開放平台</a>，可下載到很多資料，如何應用需要靠我們的創意進行加值。</p>
+
+<p>今天將說明如何彙整不動產實價登錄資料，透過視覺化的方式呈現</p>
+
+<ul>
+<li>檢視房地產價格漲跌</li>
+<li>房屋移轉量</li>
+<li>地理資訊視覺化
+<br></br>
+<br></br><br></li>
+</ul>
+
+<p>資料來源網址：<a hrep="http://data.gov.tw/node/6213"><a href="http://data.gov.tw/node/6213">http://data.gov.tw/node/6213</a></a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>R套件</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;'>
+  <p><span style="color:blue"  font-size: 12pt> 資料處理</span></p>
+
+<ul>
+<li>dplyr</li>
+<li>stringr</li>
+</ul>
+
+<p><span style="color:blue"  font-size: 12pt> 時間序列</span></p>
+
+<ul>
+<li>xts</li>
+<li>zoo</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><span style="color:blue"  font-size: 12pt> 動態繪圖</span></p>
+
+<ul>
+<li>dygraphs</li>
+<li>googleVis</li>
+<li>plotGoogleMaps</li>
+<li>rCharts</li>
+</ul>
+
+</div>
+<div>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue quote dark" id="slide-3" style="background:;">
+  <article data-timings="">
+    <p><br></br></p>
+
+<div align=center valign=center><q>資料前置處理</q></div>
+
+<style>
+.dark q {
+  color: white;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>資料很多，要如何一次將資料匯入R中?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/img/Datalist.png" alt="Datalist"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>不動產實價登錄資料載入-1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Setp 1 設定目錄</p>
+
+<pre><code class="r">path &lt;- &quot;~/Desktop/2015 DSIA workshop/lvr_landAcsv/&quot;
+setwd(path)
+</code></pre>
+
+<p>Setp 2 搜尋檔案路徑</p>
+
+<pre><code class="r">files &lt;- dir(path, pattern=&quot;\\.CSV&quot;, recursive=TRUE, full.names=T)
+files &lt;- files[grepl(&quot;[A-Z]_LVR_LAND_A.CSV&quot;, files)]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>不動產實價登錄資料載入-2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Setp 3 讀取資料</p>
+
+<pre><code class="r">tables &lt;- lapply(1:length(files), 
+                 function(u) read.csv(files[u], fileEncoding = &quot;BIG-5&quot;, 
+                                      stringsAsFactors = F, 
+                                      colClasses = c(rep(NA, 26), rep(&quot;NULL&quot;, 10))))
+</code></pre>
+
+<ul>
+<li>輸出為list格式</li>
+</ul>
+
+<p><span style="color:red"  font-size: 14 pt>注意事項 </span></p>
+
+<ol class = "build incremental">
+<li>需注意檔案編碼</li>
+<li>由於「備註」一欄跨越多個欄位，導致每一筆資料長度不同，因此匯入時忽略備註後的欄位</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>不動產實價登錄資料載入-3</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Step 4 加入縣市名稱</p>
+
+<pre><code class="r">corresponda &lt;- read.table(&quot;~/Desktop/2015 DSIA workshop/lvr_landAcsv/地區對照.txt&quot;, 
+                          header = T, stringsAsFactors = F)
+city &lt;- rep(corresponda[,2], unlist(lapply(tables,nrow)))
+</code></pre>
+
+<p>Step 5 合併資料</p>
+
+<pre><code class="r">tables &lt;- do.call(rbind, tables)
+Data &lt;- data.frame(&quot;縣市&quot; = city, tables)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>寫成函數，方便新資料載入</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">load_data &lt;- function(path) {
+  files &lt;- dir(path, pattern=&quot;\\.CSV&quot;, recursive=TRUE, full.names=T)
+  files &lt;- files[grepl(&quot;[A-Z]_LVR_LAND_A.CSV&quot;, files)]
+
+  tables &lt;- lapply(1:length(files), 
+                   function(u) read.csv(files[u], fileEncoding = &quot;BIG-5&quot;, 
+                                        stringsAsFactors = F, 
+                                        colClasses = c(rep(NA, 26), rep(&quot;NULL&quot;, 10))))
+
+  corresponda &lt;- read.table(&quot;地區對照.txt&quot;, header = T, stringsAsFactors = F)
+
+  city &lt;- rep(corresponda[,2], unlist(lapply(tables,nrow)))
+  tables &lt;- do.call(rbind, tables)
+  data.frame(&quot;縣市&quot; = city, tables)
+}
+</code></pre>
+
+<pre><code class="r">Data &lt;- load_data(path)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>檢視資料結構</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">str(Data)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    4077 obs. of  27 variables:
+##  $ 縣市                    : Factor w/ 21 levels &quot;高雄市&quot;,&quot;花蓮縣&quot;,..: 11 11 11 11 11 11 11 11 11 11 ...
+##  $ 鄉鎮市區                : chr  &quot;文山區&quot; &quot;中正區&quot; &quot;文山區&quot; &quot;文山區&quot; ...
+##  $ 交易標的                : chr  &quot;房地(土地+建物)&quot; &quot;房地(土地+建物)&quot; &quot;房地(土地+建物)+車位&quot; &quot;車位&quot; ...
+##  $ 土地區段位置或建物區門牌: chr  &quot;臺北市文山區景華街82巷7弄1~30號&quot; &quot;臺北市中正區羅斯福路二段31~60號&quot; &quot;臺北市文山區萬芳路107巷1~30號&quot; &quot;臺北市文山區興隆路三段181巷61~90號&quot; ...
+##  $ 土地移轉總面積平方公尺  : num  28.67 11.45 41.23 0.7 9.16 ...
+##  $ 都市土地使用分區        : chr  &quot;住&quot; &quot;商&quot; &quot;住&quot; &quot;住&quot; ...
+##  $ 非都市土地使用分區      : chr  NA NA NA NA ...
+##  $ 非都市土地使用編定      : chr  NA NA NA NA ...
+##  $ 交易年月                : int  10402 10402 10401 10402 10401 10403 10403 10403 10403 10403 ...
+##  $ 交易筆棟數              : chr  &quot;土地1建物1車位0&quot; &quot;土地1建物1車位0&quot; &quot;土地1建物1車位2&quot; &quot;土地0建物0車位1&quot; ...
+##  $ 移轉層次                : chr  &quot;一層&quot; &quot;三層&quot; &quot;五層&quot; &quot;&quot; ...
+##  $ 總樓層數                : int  3 9 15 NA 16 NA NA NA NA NA ...
+##  $ 建物型態                : chr  &quot;公寓(5樓含以下無電梯)&quot; &quot;華廈(10層含以下有電梯)&quot; &quot;住宅大樓(11層含以上有電梯)&quot; &quot;其他&quot; ...
+##  $ 主要用途                : chr  &quot;住家用&quot; &quot;見使用執照&quot; &quot;見其他登記事項&quot; &quot;&quot; ...
+##  $ 主要建材                : chr  &quot;鋼筋混凝土造&quot; &quot;鋼筋混凝土造&quot; &quot;鋼筋混凝土造&quot; &quot;&quot; ...
+##  $ 建築完成年月            : int  730521 700623 1010919 NA 880119 NA NA NA NA NA ...
+##  $ 建物移轉總面積平方公尺  : num  50.2 108.2 254.4 35.6 41.3 ...
+##  $ 建物現況格局.房         : int  2 3 3 0 3 0 0 0 0 0 ...
+##  $ 建物現況格局.廳         : int  2 2 2 0 1 0 0 0 0 0 ...
+##  $ 建物現況格局.衛         : int  2 2 2 0 2 0 0 0 0 0 ...
+##  $ 建物現況格局.隔間       : chr  &quot;有&quot; &quot;有&quot; &quot;有&quot; &quot;有&quot; ...
+##  $ 有無管理組織            : chr  &quot;無&quot; &quot;有&quot; &quot;有&quot; &quot;有&quot; ...
+##  $ 總價元                  : num  12000000 17800000 37500000 2000000 2274651 ...
+##  $ 單價每平方公尺          : int  239091 164510 147423 NA 55090 238976 238404 238785 238404 0 ...
+##  $ 車位類別                : chr  &quot;&quot; &quot;&quot; &quot;坡道平面&quot; &quot;坡道平面&quot; ...
+##  $ 車位移轉總面積平方公尺  : num  0 0 68.5 35.6 0 ...
+##  $ 車位總價元              : int  0 0 0 2000000 0 0 0 0 0 0 ...
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>資料中沒有提供經緯度怎麼辦？</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>可透過 Google Map API將地址轉換為經緯度</p></li>
+<li><p>使用下列連結即可返還json格式的資料，透過解析json檔即可獲取坐標</p>
+
+<p>http：//maps.googleapis.com/maps/api/geocode/json?address=<span style="color:blue">地址</span>&amp;sensor=true</p></li>
+</ul>
+
+<p><br></br></p>
+
+<ul>
+<li>在R中可使用ggmap套R件中的geocode獲取經緯度資訊</li>
+</ul>
+
+<p><span style="color:red">限制</span></p>
+
+<ul>
+<li>查詢的次數上限為一天 2500 次</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>地址處理-1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>因資料中的地址形態為</p>
+
+<ul>
+<li>房地、車位：臺北市中山區南京東路二段181~210號</li>
+<li>土地：實踐段二小段541~570地號</li>
+</ul>
+
+<p>故在獲取經緯度前，先取得該地段中間的門牌號碼作為代表</p>
+
+<pre><code class="r">library(ggmap)
+library(stringr)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>地址處理-2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>處理門牌號碼</p>
+
+<pre><code class="r">location &lt;- &quot;臺北市中山區南京東路二段181~210號&quot;
+if(grepl(&quot;~&quot;, location)){
+        Replace&lt;- str_locate(location, &quot;[0-9]+~[0-9]+&quot;)
+        Replace &lt;- str_sub(location, Replace)[1]
+        Replace&lt;- gsub(&quot;號&quot;, &quot;&quot;, Replace)
+        No &lt;- as.numeric(unlist(strsplit(Replace, &quot;~&quot;)))
+        No &lt;- floor((No[2]+No[1])/2)
+        No
+        location &lt;- str_replace(location, Replace, No)
+      } 
+location
+</code></pre>
+
+<pre><code>## [1] &quot;臺北市中山區南京東路二段195號&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>地址處理-3</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>加入額外判斷條件並寫成函數</p>
+
+<pre><code class="r">location_process &lt;- function(location){
+  if( nchar(location)&lt;3 | grepl(&quot;地號&quot;, location) | location == &quot;&quot;){
+    &quot;&quot;
+  }else{
+    if(grepl(&quot;~&quot;, location)){
+      Replace&lt;- str_locate(location, &quot;[0-9]+~[0-9]+&quot;)
+      Replace &lt;- str_sub(location, Replace)[1]
+      Replace&lt;- gsub(&quot;號&quot;, &quot;&quot;, Replace)
+      No &lt;- as.numeric(unlist(strsplit(Replace, &quot;~&quot;)))
+      No &lt;- floor((No[2]+No[1])/2)
+      location &lt;- str_replace(location, Replace, No)
+    } 
+    location
+  }
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>地址處理-4</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">Data$土地區段位置或建物區門牌 &lt;- sapply(Data$土地區段位置或建物區門牌, location_process)
+</code></pre>
+
+<p>獲取經緯度</p>
+
+<pre><code class="r">geocode(location = Data$土地區段位置或建物區門牌[1])
+</code></pre>
+
+<pre><code class="r">LatLon &lt;- t(sapply(Data$土地區段位置或建物區門牌[1:2500], geocode)) 
+LatLon &lt;- as.data.frame(LatLon)
+</code></pre>
+
+<p>新增經緯度欄位</p>
+
+<pre><code class="r">Data$Lon &lt;- LatLon$lon
+Data$Lat &lt;- LatLon$lat
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">Data &lt;- read.table(&quot;~/Desktop/2015 DSIA workshop/lvr_landAcsv/lvr_land_All.csv&quot;, 
+                   header = T, sep = &quot;,&quot;, stringsAsFactors = F)
+
+Data[1:5, 28:29]
+</code></pre>
+
+<pre><code>##     lat   lon
+## 1 24.99 121.5
+## 2 25.03 121.5
+## 3 25.00 121.6
+## 4 25.00 121.6
+## 5 25.00 121.5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>日期格式轉換-1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>原先交易年月之日期格式為「民國年＋月份」--&gt; 轉換為西元年月</p>
+
+<pre><code class="r">Data$交易年月[1:10]
+</code></pre>
+
+<pre><code>##  [1] 10402 10402 10401 10402 10401 10403 10403 10403 10403 10403
+</code></pre>
+
+<p><span style="color:red"  font-size: 14 pt>轉換前需將系統時間語系進行更改</span></p>
+
+<pre><code class="r">if(Sys.info()[1]==&quot;Windows&quot;){
+  Sys.setlocale(&quot;LC_TIME&quot;, &quot;C&quot;)
+}else{
+  Sys.setlocale(&quot;LC_TIME&quot;, &quot;en_US.UTF-8&quot;)
+}
+</code></pre>
+
+<pre><code>## [1] &quot;en_US.UTF-8&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>日期格式轉換-2</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">Data &lt;- Data[Data$交易標的 != &quot;土地&quot;, ]
+
+year &lt;- as.numeric(ifelse(nchar(Data$交易年月)==5, str_sub(Data$交易年月, 1, 3), 
+                          str_sub(Data$交易年月, 1, 2)))
+
+year &lt;- year+1911
+
+mon &lt;- ifelse(nchar(Data$交易年月)==5, str_sub(Data$交易年月, 4, 5), 
+              str_sub(Data$交易年月, 3, 4))
+
+library(zoo)
+Data$交易年月 &lt;- as.yearmon(paste0(year,&quot;-&quot;, mon))
+
+Data$yearmon &lt;- as.Date(Data$交易年月)
+Data$yearmon
+</code></pre>
+
+<pre><code>##    [1] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##    [6] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##   [11] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##   [16] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-08-01&quot; &quot;2015-03-01&quot;
+##   [21] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2014-11-01&quot;
+##   [26] &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot;
+##   [31] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##   [36] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot;
+##   [41] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##   [46] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##   [51] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##   [56] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##   [61] &quot;2014-01-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+##   [66] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+##   [71] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-10-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot;
+##   [76] &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot;
+##   [81] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##   [86] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##   [91] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot;
+##   [96] &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [101] &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [106] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2013-06-01&quot; &quot;2015-02-01&quot;
+##  [111] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2014-10-01&quot;
+##  [116] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [121] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [126] &quot;2014-11-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot;
+##  [131] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [136] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [141] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [146] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+##  [151] &quot;2015-02-01&quot; &quot;2012-04-01&quot; &quot;2012-04-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [156] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [161] &quot;2015-02-01&quot; &quot;2014-11-01&quot; &quot;2013-02-01&quot; &quot;2013-02-01&quot; &quot;2013-02-01&quot;
+##  [166] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [171] &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2014-10-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [176] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [181] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot;
+##  [186] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [191] &quot;2013-09-01&quot; &quot;2011-08-01&quot; &quot;2015-03-01&quot; &quot;2014-11-01&quot; &quot;2014-11-01&quot;
+##  [196] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [201] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [206] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [211] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+##  [216] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [221] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+##  [226] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+##  [231] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot;
+##  [236] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+##  [241] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+##  [246] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+##  [251] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [256] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [261] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [266] &quot;2014-12-01&quot; &quot;2014-11-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+##  [271] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [276] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [281] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [286] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [291] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [296] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2012-11-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot;
+##  [301] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [306] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [311] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+##  [316] &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2014-10-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [321] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [326] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+##  [331] &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot;
+##  [336] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [341] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [346] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [351] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+##  [356] &quot;2015-02-01&quot; &quot;2014-11-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [361] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [366] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [371] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [376] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [381] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+##  [386] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [391] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [396] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [401] &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [406] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [411] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [416] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [421] &quot;2015-01-01&quot; &quot;2014-11-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [426] &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [431] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [436] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+##  [441] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [446] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [451] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [456] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+##  [461] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+##  [466] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [471] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [476] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [481] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+##  [486] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot;
+##  [491] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [496] &quot;2013-09-01&quot; &quot;2013-09-01&quot; &quot;2014-11-01&quot; &quot;2013-11-01&quot; &quot;2014-08-01&quot;
+##  [501] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+##  [506] &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [511] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+##  [516] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [521] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [526] &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+##  [531] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+##  [536] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-11-01&quot;
+##  [541] &quot;2015-03-01&quot; &quot;2010-11-01&quot; &quot;2015-03-01&quot; &quot;2014-08-01&quot; &quot;2014-02-01&quot;
+##  [546] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [551] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot;
+##  [556] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [561] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [566] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [571] &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+##  [576] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2012-10-01&quot; &quot;2013-03-01&quot;
+##  [581] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [586] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+##  [591] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [596] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [601] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+##  [606] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [611] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [616] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [621] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+##  [626] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [631] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+##  [636] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [641] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [646] &quot;2015-01-01&quot; &quot;2014-10-01&quot; &quot;2014-10-01&quot; &quot;2014-12-01&quot; &quot;2012-10-01&quot;
+##  [651] &quot;2014-12-01&quot; &quot;2014-10-01&quot; &quot;2014-10-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [656] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [661] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [666] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+##  [671] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [676] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [681] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [686] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [691] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [696] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot;
+##  [701] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot;
+##  [706] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [711] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [716] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [721] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [726] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+##  [731] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [736] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+##  [741] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [746] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [751] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot;
+##  [756] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [761] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [766] &quot;2014-12-01&quot; &quot;2010-08-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [771] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [776] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+##  [781] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [786] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [791] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [796] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot;
+##  [801] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [806] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+##  [811] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-11-01&quot; &quot;2015-02-01&quot;
+##  [816] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [821] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [826] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [831] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2011-09-01&quot;
+##  [836] &quot;2011-09-01&quot; &quot;2011-09-01&quot; &quot;2011-09-01&quot; &quot;2011-10-01&quot; &quot;2011-09-01&quot;
+##  [841] &quot;2011-09-01&quot; &quot;2011-11-01&quot; &quot;2011-08-01&quot; &quot;2011-08-01&quot; &quot;2015-01-01&quot;
+##  [846] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [851] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [856] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-09-01&quot; &quot;2014-03-01&quot; &quot;2015-01-01&quot;
+##  [861] &quot;2014-03-01&quot; &quot;2015-02-01&quot; &quot;2010-11-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+##  [866] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [871] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+##  [876] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+##  [881] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [886] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot;
+##  [891] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+##  [896] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+##  [901] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [906] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [911] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [916] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [921] &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [926] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+##  [931] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [936] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot;
+##  [941] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+##  [946] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [951] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+##  [956] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+##  [961] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+##  [966] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2013-09-01&quot; &quot;2013-07-01&quot; &quot;2013-07-01&quot;
+##  [971] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+##  [976] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2013-03-01&quot; &quot;2013-05-01&quot;
+##  [981] &quot;2013-05-01&quot; &quot;2013-03-01&quot; &quot;2013-05-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot;
+##  [986] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+##  [991] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+##  [996] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1001] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1006] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1011] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-04-01&quot; &quot;2013-11-01&quot; &quot;2013-10-01&quot;
+## [1016] &quot;2013-08-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-02-01&quot; &quot;2015-02-01&quot;
+## [1021] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1026] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1031] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-11-01&quot;
+## [1036] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-04-01&quot; &quot;2015-01-01&quot;
+## [1041] &quot;2012-10-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot;
+## [1046] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-06-01&quot;
+## [1051] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-04-01&quot; &quot;2015-02-01&quot;
+## [1056] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+## [1061] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1066] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [1071] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1076] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1081] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1086] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2010-06-01&quot; &quot;2015-02-01&quot;
+## [1091] &quot;2010-06-01&quot; &quot;2010-06-01&quot; &quot;2010-10-01&quot; &quot;2010-09-01&quot; &quot;2010-08-01&quot;
+## [1096] &quot;2013-07-01&quot; &quot;2014-06-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1101] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1106] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1111] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2014-11-01&quot; &quot;2015-02-01&quot;
+## [1116] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1121] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1126] &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1131] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1136] &quot;2015-02-01&quot; &quot;2014-09-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [1141] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [1146] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1151] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1156] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1161] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1166] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [1171] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1176] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1181] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1186] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1191] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1196] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1201] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [1206] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1211] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1216] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [1221] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot;
+## [1226] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1231] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1236] &quot;2015-03-01&quot; &quot;2011-05-01&quot; &quot;2011-08-01&quot; &quot;2012-05-01&quot; &quot;2012-09-01&quot;
+## [1241] &quot;2012-02-01&quot; &quot;2012-03-01&quot; &quot;2012-03-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [1246] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1251] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-10-01&quot; &quot;2015-03-01&quot;
+## [1256] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1261] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2012-12-01&quot; &quot;2012-09-01&quot;
+## [1266] &quot;2012-12-01&quot; &quot;2012-11-01&quot; &quot;2012-08-01&quot; &quot;2012-11-01&quot; &quot;2012-09-01&quot;
+## [1271] &quot;2012-09-01&quot; &quot;2012-08-01&quot; &quot;2012-09-01&quot; &quot;2012-08-01&quot; &quot;2012-08-01&quot;
+## [1276] &quot;2012-08-01&quot; &quot;2012-08-01&quot; &quot;2012-08-01&quot; &quot;2012-10-01&quot; &quot;2012-09-01&quot;
+## [1281] &quot;2012-09-01&quot; &quot;2012-08-01&quot; &quot;2012-09-01&quot; &quot;2012-08-01&quot; &quot;2012-09-01&quot;
+## [1286] &quot;2012-10-01&quot; &quot;2012-09-01&quot; &quot;2012-09-01&quot; &quot;2012-09-01&quot; &quot;2012-11-01&quot;
+## [1291] &quot;2012-09-01&quot; &quot;2012-11-01&quot; &quot;2012-09-01&quot; &quot;2012-08-01&quot; &quot;2012-10-01&quot;
+## [1296] &quot;2013-05-01&quot; &quot;2012-09-01&quot; &quot;2012-10-01&quot; &quot;2012-08-01&quot; &quot;2012-08-01&quot;
+## [1301] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2014-09-01&quot; &quot;2014-06-01&quot; &quot;2014-09-01&quot;
+## [1306] &quot;2014-07-01&quot; &quot;2013-10-01&quot; &quot;2013-10-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1311] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1316] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [1321] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1326] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1331] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1336] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1341] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1346] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1351] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1356] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1361] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1366] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1371] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1376] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1381] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1386] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1391] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1396] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1401] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1406] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1411] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1416] &quot;2014-09-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1421] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1426] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1431] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1436] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1441] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1446] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1451] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1456] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1461] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1466] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1471] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1476] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1481] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1486] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [1491] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1496] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1501] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1506] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [1511] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2013-09-01&quot; &quot;2014-04-01&quot;
+## [1516] &quot;2014-04-01&quot; &quot;2013-09-01&quot; &quot;2013-06-01&quot; &quot;2013-08-01&quot; &quot;2015-02-01&quot;
+## [1521] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1526] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1531] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1536] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1541] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1546] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1551] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1556] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+## [1561] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [1566] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [1571] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [1576] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1581] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1586] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1591] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1596] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-09-01&quot; &quot;2014-04-01&quot;
+## [1601] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1606] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1611] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1616] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-06-01&quot; &quot;2014-05-01&quot;
+## [1621] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1626] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1631] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [1636] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1641] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [1646] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [1651] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [1656] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1661] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1666] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [1671] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1676] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1681] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1686] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1691] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1696] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1701] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1706] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1711] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [1716] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot;
+## [1721] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [1726] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [1731] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [1736] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1741] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1746] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1751] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1756] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1761] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1766] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1771] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1776] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1781] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1786] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1791] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1796] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1801] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1806] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1811] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1816] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1821] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1826] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1831] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1836] &quot;2014-12-01&quot; &quot;2014-04-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1841] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1846] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot;
+## [1851] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1856] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1861] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [1866] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [1871] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1876] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [1881] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [1886] &quot;2015-03-01&quot; &quot;2014-11-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1891] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot;
+## [1896] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1901] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1906] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1911] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1916] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1921] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-09-01&quot;
+## [1926] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [1931] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot;
+## [1936] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1941] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1946] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1951] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1956] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1961] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1966] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [1971] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1976] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1981] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [1986] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [1991] &quot;2012-11-01&quot; &quot;2015-02-01&quot; &quot;2014-11-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [1996] &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot;
+## [2001] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2006] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2011] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2016] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2021] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2026] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2031] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot;
+## [2036] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2041] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2046] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [2051] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [2056] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2061] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2014-01-01&quot; &quot;2015-02-01&quot;
+## [2066] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2071] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2076] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2081] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2086] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2091] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2096] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2101] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2106] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2111] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [2116] &quot;2014-08-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [2121] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [2126] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2014-09-01&quot; &quot;2014-12-01&quot;
+## [2131] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2136] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2141] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2146] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [2151] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2156] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2161] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2166] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2171] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2176] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2181] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2186] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2191] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2196] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2201] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2206] &quot;2012-03-01&quot; &quot;2012-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2211] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2216] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2221] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2226] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2231] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2236] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2241] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2246] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2251] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2256] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2261] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-11-01&quot;
+## [2266] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [2271] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [2276] &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-11-01&quot; &quot;2015-01-01&quot;
+## [2281] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [2286] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [2291] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2014-11-01&quot; &quot;2014-12-01&quot;
+## [2296] &quot;2014-11-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [2301] &quot;2014-12-01&quot; NA           &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [2306] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [2311] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+## [2316] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [2321] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot;
+## [2326] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot;
+## [2331] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot;
+## [2336] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2341] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [2346] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2013-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2351] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2013-12-01&quot; &quot;2014-04-01&quot;
+## [2356] &quot;2013-12-01&quot; &quot;2013-08-01&quot; &quot;2013-12-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [2361] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2366] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2371] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2376] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot;
+## [2381] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2013-12-01&quot; &quot;2014-06-01&quot; &quot;2014-03-01&quot;
+## [2386] &quot;2014-05-01&quot; &quot;2014-05-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [2391] &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [2396] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2401] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2406] &quot;2014-03-01&quot; &quot;2014-04-01&quot; &quot;2014-01-01&quot; &quot;2014-01-01&quot; &quot;2014-04-01&quot;
+## [2411] &quot;2013-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2416] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [2421] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [2426] &quot;2014-05-01&quot; &quot;2014-09-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2431] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2436] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2441] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2446] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-05-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2451] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2456] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot;
+## [2461] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2466] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [2471] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [2476] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2481] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2486] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2491] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [2496] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2501] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2506] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2511] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2516] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2521] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2526] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2531] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2536] &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [2541] &quot;2014-09-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2546] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [2551] &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2556] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2561] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2566] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+## [2571] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2576] &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot;
+## [2581] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [2586] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2591] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot;
+## [2596] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2601] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [2606] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [2611] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [2616] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [2621] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [2626] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [2631] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2636] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+## [2641] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2646] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2651] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2656] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2661] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2666] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2671] &quot;2012-09-01&quot; &quot;2014-10-01&quot; &quot;2014-11-01&quot; &quot;2014-09-01&quot; &quot;2014-10-01&quot;
+## [2676] &quot;2014-09-01&quot; &quot;2012-09-01&quot; &quot;2014-10-01&quot; &quot;2015-01-01&quot; &quot;2014-09-01&quot;
+## [2681] &quot;2014-10-01&quot; &quot;2014-09-01&quot; &quot;2014-09-01&quot; &quot;2014-12-01&quot; &quot;2014-10-01&quot;
+## [2686] &quot;2014-10-01&quot; &quot;2012-12-01&quot; &quot;2014-10-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2691] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2696] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2701] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2706] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2711] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2716] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2721] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2726] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2731] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2736] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2741] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2746] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2751] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2756] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2761] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2766] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2771] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2776] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2781] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2786] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2014-11-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2791] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2796] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2801] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2806] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2811] &quot;2014-11-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2816] &quot;2015-02-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2821] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [2826] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2831] &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2836] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2841] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2846] &quot;2014-10-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2013-07-01&quot; &quot;2013-06-01&quot;
+## [2851] &quot;2014-01-01&quot; &quot;2015-01-01&quot; &quot;2013-10-01&quot; &quot;2014-09-01&quot; &quot;2014-02-01&quot;
+## [2856] &quot;2013-09-01&quot; &quot;2014-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2861] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2866] &quot;2015-02-01&quot; &quot;2014-07-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2871] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2013-10-01&quot; &quot;2013-10-01&quot; &quot;2013-10-01&quot;
+## [2876] &quot;2014-07-01&quot; &quot;2014-02-01&quot; &quot;2014-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2881] &quot;2014-01-01&quot; &quot;2015-01-01&quot; &quot;2014-10-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [2886] &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2891] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2896] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2901] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2906] &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot;
+## [2911] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2916] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2921] &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot;
+## [2926] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2014-12-01&quot;
+## [2931] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2936] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2941] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-02-01&quot;
+## [2946] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2951] &quot;2015-03-01&quot; &quot;2014-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2956] &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2961] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2966] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2971] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot;
+## [2976] &quot;2015-01-01&quot; &quot;2015-02-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2981] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2014-04-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [2986] &quot;2015-02-01&quot; &quot;2014-11-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [2991] &quot;2014-12-01&quot; &quot;2015-02-01&quot; &quot;2015-01-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+## [2996] &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [3001] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot;
+## [3006] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [3011] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [3016] &quot;2015-01-01&quot; &quot;2015-03-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [3021] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-02-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot;
+## [3026] &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2014-12-01&quot; &quot;2015-03-01&quot; &quot;2015-03-01&quot;
+## [3031] &quot;2015-03-01&quot; &quot;2015-03-01&quot; &quot;2015-01-01&quot; &quot;2015-03-01&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue quote dark" id="slide-18" style="background:;">
+  <article data-timings="">
+    <p><br></br></p>
+
+<div align=center valign=center><q>互動式視覺化設計</q></div>
+
+<style>
+.dark q {
+  color: white;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>資料集呈現</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(rCharts)
+dTable(Data[1:10, 1:5])
+</code></pre>
+
+<p><iframe src=' assets/fig/unnamed-chunk-21-1.html ' scrolling='no' frameBorder='0' seamless class='rChart datatables ' id=iframe- chart196757f1546e ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>土地使用區分</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(dplyr); library(xts); library(dygraphs)
+Data$Zoning &lt;- ifelse(nchar(Data$都市土地使用分區) &gt; 0, 
+                      Data$都市土地使用分區, Data$非都市土地使用分區)
+</code></pre>
+
+<p>利用dygraphs產生交互式時間序列圖表</p>
+
+<pre><code class="r">colnames(Data)[1] &lt;- &quot;city&quot;
+df &lt;- filter(Data, Data$yearmon &gt;as.Date(as.yearmon(&quot;2014-01&quot;)),Zoning !=&quot;&quot;) %&gt;%
+      mutate(Year = yearmon, Zoning= 都市土地使用分區) %&gt;%
+      dplyr::select(Year, Zoning)
+
+df &lt;- aggregate(df$Zoning, list(df$Year), table)
+df &lt;- cbind(df[1], df[[2]])
+
+DyGraph &lt;- xts(df[,-1], order.by = df$Group.1) %&gt;% 
+  dygraph(main = &quot;土地使用分區&quot;) %&gt;% 
+  dyRangeSelector %&gt;% 
+  dyLegend(width = 800,  showZeroValues = F)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <article data-timings="">
+    <p><span style="color:blue"  font-size: 14pt> dygraphs</span></p>
+
+<ul>
+<li>調用dygraphs JavaScriptk的圖庫</li>
+<li>針對R中xts時間序列對象繪圖</li>
+</ul>
+
+<iframe src="assets/html/DyGraph.html" STYLE="width:100%;height:80%"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>土地移轉量</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>計算每坪單價</p>
+
+<pre><code class="r">options(&quot;scipen&quot;=100, &quot;digits&quot;=4)
+Data$SFprice &lt;- Data$總價元/Data$土地移轉總面積平方公尺
+</code></pre>
+
+<p>統計各月份成交件數與每坪平均單價</p>
+
+<pre><code class="r">Data2 &lt;- Data[!Data$SFprice == Inf, ]
+Data2 &lt;- Data2[Data2$yearmon &gt;as.Date(as.yearmon(&quot;2014-09&quot;)),]
+
+MeanPrice &lt;- aggregate(Data2$SFprice, list(Data2$交易年月), mean)
+Trading &lt;- aggregate(Data2$SFprice, list(Data2$交易年月), length)
+
+TradingVolume &lt;- data.frame(MeanPrice, Trading[2])
+names(TradingVolume) &lt;- c(&quot;Date&quot;, &quot;Price&quot;, &quot;quantity&quot;)
+
+TradingVolume$Date &lt;- as.character(TradingVolume$Date)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Highcharts</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">require(rCharts)
+h &lt;- Highcharts$new()
+
+h$xAxis(categories = as.factor(TradingVolume$Date))
+
+h$yAxis(list(list(title = list(text = &#39;成交量&#39;)), 
+             list(title = list(text = &#39;每坪單價&#39;),
+                  opposite = TRUE)))
+
+h$series(name = &#39;成交量&#39;, type = &#39;column&#39;, color = &#39;#4572A7&#39;,
+         data = TradingVolume$quantity)
+
+h$series(name = &#39;每坪單價&#39;, type = &#39;spline&#39;, color = &#39;#89A54E&#39;,
+         data = as.integer(TradingVolume$Price), yAxis = 1)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Line plus Bar Chart</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">h
+</code></pre>
+
+<p><iframe src=' assets/fig/unnamed-chunk-29-1.html ' scrolling='no' frameBorder='0' seamless class='rChart highcharts ' id=iframe- chart196731e09b4c ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>各縣市不動產平均單價</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>用aggregate整合資料時，加入縣市進行統計</p>
+
+<pre><code class="r">MeanPrice &lt;- aggregate(Data2$SFprice, list(Data2$交易年月, Data2$city), mean)
+Trading &lt;- aggregate(Data2$SFprice, list(Data2$交易年月, Data2$city), length)
+TV&lt;- merge(MeanPrice, Trading, c(&quot;Group.1&quot;, &quot;Group.2&quot;))
+names(TV) &lt;- c(&quot;Date&quot;, &quot;location&quot;, &quot;Price&quot;, &quot;quantity&quot;)
+TV &lt;- TV[order(TV$Date),]
+TV$Date &lt;- as.character(TV$Date)
+</code></pre>
+
+<pre><code class="r">TV
+</code></pre>
+
+<pre><code>##        Date location   Price quantity
+## 86 Oct 2014   臺北市 1111858        8
+## 87 Oct 2014   臺中市  703491        1
+## 88 Oct 2014   新竹市  798971        8
+## 79 Nov 2014   苗栗縣    7932        2
+## 80 Nov 2014   臺北市  945736       11
+## 81 Nov 2014   臺東縣  227870        1
+## 82 Nov 2014   臺中市  605864        2
+## 83 Nov 2014   新竹市  574220        3
+## 84 Nov 2014   新竹縣  131281        2
+## 85 Nov 2014   宜蘭縣   37944        2
+## 1  Dec 2014   高雄市  537293       14
+## 2  Dec 2014   花蓮縣   83610        2
+## 3  Dec 2014   基隆市  151895        2
+## 4  Dec 2014   嘉義市  119848        2
+## 5  Dec 2014   嘉義縣   61781        2
+## 6  Dec 2014   金門縣  109652        1
+## 7  Dec 2014   苗栗縣  111402       27
+## 8  Dec 2014   澎湖縣  129412        1
+## 9  Dec 2014   臺北市 1010142      126
+## 10 Dec 2014   臺東縣  252517        1
+## 11 Dec 2014   臺南市  166305        2
+## 12 Dec 2014   臺中市  466487       16
+## 13 Dec 2014   桃園縣  468025        6
+## 14 Dec 2014   新北市  514969        2
+## 15 Dec 2014   新竹市  372207       15
+## 16 Dec 2014   新竹縣  350764        9
+## 17 Dec 2014   宜蘭縣   74054       34
+## 18 Dec 2014   彰化縣   64499        4
+## 39 Jan 2015   高雄市  180497       12
+## 40 Jan 2015   花蓮縣  131191        5
+## 41 Jan 2015   基隆市  143825       19
+## 42 Jan 2015   嘉義市  238068        4
+## 43 Jan 2015   金門縣   61005        1
+## 44 Jan 2015   苗栗縣   98114       28
+## 45 Jan 2015   南投縣   93103        1
+## 46 Jan 2015   澎湖縣  102877        2
+## 47 Jan 2015   屏東縣  102296        3
+## 48 Jan 2015   臺北市 1440396      182
+## 49 Jan 2015   臺東縣   61040        5
+## 50 Jan 2015   臺南市   71107        4
+## 51 Jan 2015   臺中市  365639       68
+## 52 Jan 2015   桃園縣  322110       10
+## 53 Jan 2015   新北市  687685       12
+## 54 Jan 2015   新竹市  431154       64
+## 55 Jan 2015   新竹縣  101807        9
+## 56 Jan 2015   宜蘭縣   87982       18
+## 57 Jan 2015   雲林縣   39630        6
+## 58 Jan 2015   彰化縣   20340        2
+## 19 Feb 2015   高雄市  273028       54
+## 20 Feb 2015   花蓮縣   76798       17
+## 21 Feb 2015   基隆市  161259       66
+## 22 Feb 2015   嘉義市  141344       27
+## 23 Feb 2015   嘉義縣   70511        7
+## 24 Feb 2015   金門縣   53419        1
+## 25 Feb 2015   苗栗縣  137826       35
+## 26 Feb 2015   南投縣   33577        1
+## 27 Feb 2015   屏東縣   51141        4
+## 28 Feb 2015   臺北市 1217847      340
+## 29 Feb 2015   臺東縣   84534       13
+## 30 Feb 2015   臺南市  188821       13
+## 31 Feb 2015   臺中市  423906      149
+## 32 Feb 2015   桃園縣  309185       16
+## 33 Feb 2015   新北市  728053       24
+## 34 Feb 2015   新竹市  337214       95
+## 35 Feb 2015   新竹縣  367201       32
+## 36 Feb 2015   宜蘭縣  251341      163
+## 37 Feb 2015   雲林縣   68059       25
+## 38 Feb 2015   彰化縣   96398       10
+## 59 Mar 2015   高雄市  289867       44
+## 60 Mar 2015   花蓮縣  216497       17
+## 61 Mar 2015   基隆市  190066       81
+## 62 Mar 2015   嘉義市  147759       65
+## 63 Mar 2015   嘉義縣   19236        2
+## 64 Mar 2015   金門縣  128666        7
+## 65 Mar 2015   苗栗縣  104614       42
+## 66 Mar 2015   南投縣   36831        2
+## 67 Mar 2015   澎湖縣   97405        5
+## 68 Mar 2015   屏東縣   70217        6
+## 69 Mar 2015   臺北市 2614765      252
+## 70 Mar 2015   臺東縣   54143       25
+## 71 Mar 2015   臺南市   35712        6
+## 72 Mar 2015   臺中市  327911       37
+## 73 Mar 2015   桃園縣  410214       51
+## 74 Mar 2015   新北市  681714       25
+## 75 Mar 2015   新竹市  383867      177
+## 76 Mar 2015   新竹縣  254957        4
+## 77 Mar 2015   宜蘭縣  128875      109
+## 78 Mar 2015   雲林縣   52283        9
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>NVD3</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">n1 &lt;- nPlot(Price ~ Date, 
+            group = &quot;location&quot;, 
+            data = TV, 
+            type = &quot;multiBarChart&quot;)
+
+n1$chart(showControls = F, margin = list(left = 130))
+n1$yAxis(axisLabel = &quot;平均單價&quot;, width = 100)
+n1$xAxis(axisLabel = &quot;年份&quot;)
+</code></pre>
+
+<ul>
+<li>showControls用來決定是否顯示圖形控制選項(Grouped, Stacked)</li>
+<li>margin用來設定邊界</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>各縣市不動產平均單價長條圖</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">n1
+</code></pre>
+
+<p><iframe src=' assets/fig/unnamed-chunk-33-1.html ' scrolling='no' frameBorder='0' seamless class='rChart nvd3 ' id=iframe- chart19673a6bd920 ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>選項太多？將資料分組</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Step 1 判斷各縣市屬於北部？南部？中部？東部？金馬？</p>
+
+<pre><code class="r">North &lt;- c(&quot;臺北市&quot;, &quot;新北市&quot;,&quot;基隆市&quot;,&quot;宜蘭縣&quot;,&quot;桃園市&quot;, &quot;桃園縣&quot;, &quot;新竹縣&quot;,&quot;新竹市&quot;)
+South &lt;- c(&quot;嘉義縣&quot;,&quot;嘉義市&quot;,&quot;臺南市&quot;,&quot;高雄市&quot;,&quot;屏東縣&quot;,&quot;澎湖縣&quot;)
+Central &lt;- c(&quot;苗栗縣&quot;,&quot;臺中市&quot;,&quot;彰化縣&quot;,&quot;南投縣&quot;,&quot;雲林縣&quot;)
+East &lt;- c(&quot;花蓮縣&quot;, &quot;臺東縣&quot;)
+
+TV$Area &lt;- ifelse(TV$location %in% North, &quot;北部&quot;,
+                     ifelse(TV$location %in% South, &quot;南部&quot;, 
+                            ifelse(TV$location %in% Central, &quot;中部&quot;,
+                                   ifelse(TV$location %in% East, &quot;東部&quot;, &quot;金馬&quot;))))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>addFilters</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Step 2 於addFilters內放入變數名稱</p>
+
+<pre><code class="r">n2 &lt;- nPlot(Price ~ Date, 
+            group = &quot;location&quot;, 
+            data = TV, 
+            type = &quot;multiBarChart&quot;)
+
+n2$chart(showControls = F, margin = list(left = 130))
+n2$yAxis(axisLabel = &quot;平均單價&quot;, width = 100)
+n2$xAxis(axisLabel = &quot;年份&quot;)
+n2$addFilters(&quot;Area&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <article data-timings="">
+    <p>加入過濾器進行篩選，更易於檢視資料</p>
+
+<iframe src="assets/html/n2.html" STYLE="width:130%;height:80%"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>臺北市建物單價與坪數分佈</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">Data2$BuildType &lt;- sapply(strsplit( Data2$建物型態 , &quot;[(]&quot;), &quot;[&quot;, 1)
+SFdata &lt;- Data2[Data2$city == &quot;臺北市&quot;, ]
+SFdata &lt;- data.frame(SF = SFdata$建物移轉總面積平方公尺, SFprice = SFdata$SFprice, BuildType = SFdata$BuildType)
+SFdata &lt;- SFdata[!is.na(SFdata$BuildType), ]
+nPlot(SFprice ~ SF, group = &quot;BuildType&quot;, data = SFdata, type = &#39;scatterChart&#39;)
+</code></pre>
+
+<p><iframe src=' assets/fig/unnamed-chunk-37-1.html ' scrolling='no' frameBorder='0' seamless class='rChart nvd3 ' id=iframe- chart196718262792 ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>Pie Chart</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>各類型建物之成交比例之圓餅圖</p>
+
+<pre><code class="r">BN &lt;- aggregate(SFdata$BuildType, list(SFdata$BuildType), length)
+names(BN) &lt;- c(&quot;label&quot;, &quot;value&quot;)
+BN &lt;- BN[order(BN$value),]
+BN &lt;- BN[-which(BN$label == &quot;其他&quot;), ]
+
+Pie &lt;- rCharts$new()
+Pie$setLib(&quot;http://timelyportfolio.github.io/rChartsExtra/d3pie&quot;)
+Pie$params$chartspec &lt;- list(header = list(title = list(text = &quot;成交建物類型&quot;))
+                             ,data = list(content = BN)
+                             ,labels = list(lines = list(style = &quot;straight&quot;)))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <article data-timings="">
+    <iframe src="assets/html/Pie.html" STYLE="width:100%;height:100%"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>Horizontal Chart</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>各類建物成交單價</p>
+
+<pre><code class="r">Bprice &lt;- aggregate(SFdata$SFprice, list(SFdata$BuildType), mean)
+names(Bprice) &lt;- c(&quot;label&quot;, &quot;value&quot;)
+Bprice&lt;- Bprice[order(Bprice$value, decreasing = T),]
+Bprice &lt;- Bprice[-which(Bprice$label == &quot;其他&quot;), ]
+
+n3 &lt;- nPlot(value ~ label, data = Bprice, type = &#39;multiBarHorizontalChart&#39;, width = 800)
+n3$chart(showControls = F, margin = list(left = 130))
+n3$yAxis(axisLabel = &quot;平均成交單價&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
+  <article data-timings="">
+    <iframe src="assets/html/Horizontal.html" STYLE="width:100%;height:100%"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-36" style="background:;">
+  <hgroup>
+    <h2>gvisMap</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>優點：可直接依照地址繪製地圖</p>
+
+<p>缺點：資料筆數上限為400筆</p>
+
+<pre><code class="r">MapData &lt;- Data2[sample(1:nrow(Data2), 50), ]
+</code></pre>
+
+<p>Tips用來建立地點資訊</p>
+
+<pre><code class="r">Tips &lt;- sapply(1:50, function(u) paste0(&quot;地址：&quot;,MapData[u,4], 
+                                        &quot;&lt;BR&gt;面積：&quot;,MapData[u, 5], 
+                                        &quot;&lt;BR&gt;樓層：&quot;,MapData[u, 11],  
+                                        &quot;&lt;BR&gt;價格：&quot;, MapData[u, 23]))
+
+df &lt;- data.frame(Adress = MapData$土地區段位置或建物區門牌, Tips)
+
+library(googleVis)
+Map &lt;- gvisMap(df, &quot;Adress&quot;, &quot;Tips&quot;, options = list(mapType = &#39;normal&#39;, width = 800, height = 650))
+</code></pre>
+
+<pre><code class="r">plot(Map)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-37" style="background:;">
+  <article data-timings="">
+    <p>將地圖存為html後使用iframe讀進HTML Slide中</p>
+
+<pre><code class="r">print(Map, file=&quot;GvisMap.html&quot;)
+</code></pre>
+
+<iframe src="assets/html/GvisMap.html" STYLE="width:120%;height:80%"></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-38" style="background:;">
+  <hgroup>
+    <h2>重設定價格與經緯度</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>更改價格區間</p>
+
+<pre><code class="r">Data2$level &lt;- ifelse(Data2$總價元 &lt;= 10000000, &quot;0~1000&quot;, 
+                      ifelse(Data2$總價元 &lt;= 20000000, &quot;1000~2000&quot;, &quot;2000+&quot;))
+
+table(Data2$level)
+</code></pre>
+
+<pre><code>## 
+##    0~1000 1000~2000     2000+ 
+##      1714       653       452
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
+  <hgroup>
+    <h2>清理經緯度資料</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/img/LatLon_error.png" alt="LatLon_error"></p>
+
+<pre><code class="r">Data2 &lt;- Data2[which(Data2$lat &lt; 35 &amp; Data2$lon &gt; 119), ]
+Data2 &lt;- Data2[which(Data2$lat !=&quot;&quot; | Data2$lon != &quot;&quot;), ]
+# Data2[is.na(Data2)] &lt;- &quot;&quot;
+MapData2&lt;- Data2[, c(34, 3,4,5, 23, 31:33, 28:29)]
+MapData2 &lt;- MapData2[Data2$交易年月==as.yearmon(&quot;2015-01&quot;), ]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
+  <hgroup>
+    <h2>建立空間資料</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(plotGoogleMaps)
+</code></pre>
+
+<p>設定空間坐標</p>
+
+<pre><code class="r">coordinates(MapData2)&lt;- ~lon+lat
+</code></pre>
+
+<p>指定空間投影的參考系統</p>
+
+<pre><code class="r">proj4string(MapData2) &lt;- CRS(&quot;+init=epsg:4326&quot;)
+</code></pre>
+
+<blockquote>
+<p>epsg 4326地區為世界地圖</p>
+</blockquote>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-41" style="background:;">
+  <hgroup>
+    <h2>plotGoogleMaps</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">m &lt;- plotGoogleMaps(MapData2,filename=&#39;Map1.html&#39;,mapTypeId= &quot;ROADMAP&quot;)
+</code></pre>
+
+<iframe src="assets/html/Map1.html"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-42" style="background:;">
+  <hgroup>
+    <h2>bubbleGoogleMaps</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">m2 &lt;- bubbleGoogleMaps(MapData2,zcol=&#39;總價元&#39;, max.radius=500
+                       , filename=&#39;Map2.html&#39;)
+</code></pre>
+
+<iframe src="assets/html/Map2.html"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-43" style="background:;">
+  <hgroup>
+    <h2>mcGoogleMaps</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">m3 &lt;- mcGoogleMaps(MapData2, zcol=&#39;SFprice&#39;, filename=&#39;Map3.html&#39;)
+</code></pre>
+
+<iframe src="assets/html/Map3.html"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue lightblue" id="slide-44" style="background:;">
+  <article data-timings="">
+    <p><br></br></p>
+
+<div align=center valign=center><q>Thanks for your attention</q></div>
+
+<p><br></br>
+<img src="assets/img/CARS_QRcode.JPG" alt="CARS_QRcode"></p>
+
+<style>
+.white q {
+  color: black;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='動機'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='R套件'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title=''>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='資料很多，要如何一次將資料匯入R中?'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='不動產實價登錄資料載入-1'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='不動產實價登錄資料載入-2'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='不動產實價登錄資料載入-3'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='寫成函數，方便新資料載入'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='檢視資料結構'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='資料中沒有提供經緯度怎麼辦？'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='地址處理-1'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='地址處理-2'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='地址處理-3'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='地址處理-4'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title=''>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='日期格式轉換-1'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='日期格式轉換-2'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title=''>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='資料集呈現'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='土地使用區分'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title=''>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='土地移轉量'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Highcharts'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Line plus Bar Chart'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='各縣市不動產平均單價'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='NVD3'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='各縣市不動產平均單價長條圖'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='選項太多？將資料分組'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='addFilters'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title=''>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='臺北市建物單價與坪數分佈'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='Pie Chart'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title=''>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Horizontal Chart'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title=''>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='gvisMap'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title=''>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='重設定價格與經緯度'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='清理經緯度資料'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='建立空間資料'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='plotGoogleMaps'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='bubbleGoogleMaps'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='mcGoogleMaps'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title=''>
+         44
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/interactive/js/ace/js/ace.js"></script>
+<script src="libraries/widgets/interactive/js/opencpu-0.5.js"></script>
+<script src="libraries/widgets/interactive/js/interactive.js"></script>
+
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

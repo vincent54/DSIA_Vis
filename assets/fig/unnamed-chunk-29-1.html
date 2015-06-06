@@ -1,0 +1,100 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js' type='text/javascript'></script>
+    <script src='http://code.highcharts.com/highcharts.js' type='text/javascript'></script>
+    <script src='http://code.highcharts.com/highcharts-more.js' type='text/javascript'></script>
+    <script src='http://code.highcharts.com/modules/exporting.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart196731e09b4c' class = 'rChart highcharts'></div>    
+    <script type='text/javascript'>
+    (function($){
+        $(function () {
+            var chart = new Highcharts.Chart({
+ "dom": "chart196731e09b4c",
+"width":            800,
+"height":            400,
+"credits": {
+ "href": null,
+"text": null 
+},
+"exporting": {
+ "enabled": false 
+},
+"title": {
+ "text": null 
+},
+"yAxis": [
+ {
+ "title": {
+ "text": "成交量" 
+} 
+},
+{
+ "title": {
+ "text": "每坪單價" 
+},
+"opposite": true 
+} 
+],
+"xAxis": [
+ {
+ "categories": [ "Oct 2014", "Nov 2014", "Dec 2014", "Jan 2015", "Feb 2015", "Mar 2015" ] 
+} 
+],
+"series": [
+ {
+ "name": "成交量",
+"type": "column",
+"color": "#4572A7",
+"data": [
+ 17,
+23,
+266,
+455,
+1092,
+966 
+] 
+},
+{
+ "name": "每坪單價",
+"type": "spline",
+"color": "#89A54E",
+"data": [
+ 940595,
+605202,
+610090,
+745871,
+573938,
+871445 
+],
+"yAxis":              1 
+} 
+],
+"id": "chart196731e09b4c",
+"chart": {
+ "renderTo": "chart196731e09b4c" 
+} 
+});
+        });
+    })(jQuery);
+</script>
+    
+    <script></script>    
+  </body>
+</html>

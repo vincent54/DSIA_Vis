@@ -1,0 +1,629 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://nvd3.org/assets/css/nv.d3.css'>
+    
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://timelyportfolio.github.io/rCharts_nvd3_tests/libraries/widgets/nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
+    <script src='http://nvd3.org/assets/lib/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart19673a6bd920' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart19673a6bd920()
+    });
+    function drawchart19673a6bd920(){  
+      var opts = {
+ "dom": "chart19673a6bd920",
+"width":    800,
+"height":    400,
+"x": "Date",
+"y": "Price",
+"group": "location",
+"type": "multiBarChart",
+"id": "chart19673a6bd920" 
+},
+        data = [
+ {
+ "Date": "Oct 2014",
+"location": "臺北市",
+"Price": 1111857.985653,
+"quantity": 8 
+},
+{
+ "Date": "Oct 2014",
+"location": "臺中市",
+"Price": 703491.4017718,
+"quantity": 1 
+},
+{
+ "Date": "Oct 2014",
+"location": "新竹市",
+"Price": 798970.5596448,
+"quantity": 8 
+},
+{
+ "Date": "Nov 2014",
+"location": "苗栗縣",
+"Price": 7932.109869848,
+"quantity": 2 
+},
+{
+ "Date": "Nov 2014",
+"location": "臺北市",
+"Price": 945735.8506294,
+"quantity": 11 
+},
+{
+ "Date": "Nov 2014",
+"location": "臺東縣",
+"Price":   227870.28922,
+"quantity": 1 
+},
+{
+ "Date": "Nov 2014",
+"location": "臺中市",
+"Price": 605864.3972306,
+"quantity": 2 
+},
+{
+ "Date": "Nov 2014",
+"location": "新竹市",
+"Price": 574220.0218826,
+"quantity": 3 
+},
+{
+ "Date": "Nov 2014",
+"location": "新竹縣",
+"Price": 131280.7273161,
+"quantity": 2 
+},
+{
+ "Date": "Nov 2014",
+"location": "宜蘭縣",
+"Price": 37943.90003237,
+"quantity": 2 
+},
+{
+ "Date": "Dec 2014",
+"location": "高雄市",
+"Price": 537292.9977045,
+"quantity": 14 
+},
+{
+ "Date": "Dec 2014",
+"location": "花蓮縣",
+"Price": 83609.96136865,
+"quantity": 2 
+},
+{
+ "Date": "Dec 2014",
+"location": "基隆市",
+"Price": 151894.5688094,
+"quantity": 2 
+},
+{
+ "Date": "Dec 2014",
+"location": "嘉義市",
+"Price": 119848.4848485,
+"quantity": 2 
+},
+{
+ "Date": "Dec 2014",
+"location": "嘉義縣",
+"Price": 61781.49894994,
+"quantity": 2 
+},
+{
+ "Date": "Dec 2014",
+"location": "金門縣",
+"Price": 109652.3668639,
+"quantity": 1 
+},
+{
+ "Date": "Dec 2014",
+"location": "苗栗縣",
+"Price": 111401.5330619,
+"quantity": 27 
+},
+{
+ "Date": "Dec 2014",
+"location": "澎湖縣",
+"Price": 129411.7647059,
+"quantity": 1 
+},
+{
+ "Date": "Dec 2014",
+"location": "臺北市",
+"Price":   1010142.2861,
+"quantity": 126 
+},
+{
+ "Date": "Dec 2014",
+"location": "臺東縣",
+"Price": 252517.4283501,
+"quantity": 1 
+},
+{
+ "Date": "Dec 2014",
+"location": "臺南市",
+"Price": 166304.8594987,
+"quantity": 2 
+},
+{
+ "Date": "Dec 2014",
+"location": "臺中市",
+"Price": 466487.3782492,
+"quantity": 16 
+},
+{
+ "Date": "Dec 2014",
+"location": "桃園縣",
+"Price": 468025.4674355,
+"quantity": 6 
+},
+{
+ "Date": "Dec 2014",
+"location": "新北市",
+"Price": 514969.2331406,
+"quantity": 2 
+},
+{
+ "Date": "Dec 2014",
+"location": "新竹市",
+"Price": 372206.7612863,
+"quantity": 15 
+},
+{
+ "Date": "Dec 2014",
+"location": "新竹縣",
+"Price": 350764.0307806,
+"quantity": 9 
+},
+{
+ "Date": "Dec 2014",
+"location": "宜蘭縣",
+"Price": 74054.41188179,
+"quantity": 34 
+},
+{
+ "Date": "Dec 2014",
+"location": "彰化縣",
+"Price": 64498.78882592,
+"quantity": 4 
+},
+{
+ "Date": "Jan 2015",
+"location": "高雄市",
+"Price": 180497.0460167,
+"quantity": 12 
+},
+{
+ "Date": "Jan 2015",
+"location": "花蓮縣",
+"Price": 131191.0056682,
+"quantity": 5 
+},
+{
+ "Date": "Jan 2015",
+"location": "基隆市",
+"Price": 143825.4380343,
+"quantity": 19 
+},
+{
+ "Date": "Jan 2015",
+"location": "嘉義市",
+"Price": 238067.7698536,
+"quantity": 4 
+},
+{
+ "Date": "Jan 2015",
+"location": "金門縣",
+"Price": 61005.36847243,
+"quantity": 1 
+},
+{
+ "Date": "Jan 2015",
+"location": "苗栗縣",
+"Price": 98113.66802781,
+"quantity": 28 
+},
+{
+ "Date": "Jan 2015",
+"location": "南投縣",
+"Price": 93103.44827586,
+"quantity": 1 
+},
+{
+ "Date": "Jan 2015",
+"location": "澎湖縣",
+"Price": 102876.7212716,
+"quantity": 2 
+},
+{
+ "Date": "Jan 2015",
+"location": "屏東縣",
+"Price": 102295.8213302,
+"quantity": 3 
+},
+{
+ "Date": "Jan 2015",
+"location": "臺北市",
+"Price": 1440395.732713,
+"quantity": 182 
+},
+{
+ "Date": "Jan 2015",
+"location": "臺東縣",
+"Price": 61039.81599317,
+"quantity": 5 
+},
+{
+ "Date": "Jan 2015",
+"location": "臺南市",
+"Price": 71107.44802301,
+"quantity": 4 
+},
+{
+ "Date": "Jan 2015",
+"location": "臺中市",
+"Price": 365639.4131467,
+"quantity": 68 
+},
+{
+ "Date": "Jan 2015",
+"location": "桃園縣",
+"Price": 322109.5658751,
+"quantity": 10 
+},
+{
+ "Date": "Jan 2015",
+"location": "新北市",
+"Price": 687685.2492982,
+"quantity": 12 
+},
+{
+ "Date": "Jan 2015",
+"location": "新竹市",
+"Price": 431154.1638159,
+"quantity": 64 
+},
+{
+ "Date": "Jan 2015",
+"location": "新竹縣",
+"Price": 101806.8785473,
+"quantity": 9 
+},
+{
+ "Date": "Jan 2015",
+"location": "宜蘭縣",
+"Price": 87982.08545327,
+"quantity": 18 
+},
+{
+ "Date": "Jan 2015",
+"location": "雲林縣",
+"Price": 39629.95722694,
+"quantity": 6 
+},
+{
+ "Date": "Jan 2015",
+"location": "彰化縣",
+"Price": 20340.10757748,
+"quantity": 2 
+},
+{
+ "Date": "Feb 2015",
+"location": "高雄市",
+"Price": 273027.9030573,
+"quantity": 54 
+},
+{
+ "Date": "Feb 2015",
+"location": "花蓮縣",
+"Price": 76798.07668251,
+"quantity": 17 
+},
+{
+ "Date": "Feb 2015",
+"location": "基隆市",
+"Price":  161258.563603,
+"quantity": 66 
+},
+{
+ "Date": "Feb 2015",
+"location": "嘉義市",
+"Price": 141344.1839711,
+"quantity": 27 
+},
+{
+ "Date": "Feb 2015",
+"location": "嘉義縣",
+"Price": 70510.98362842,
+"quantity": 7 
+},
+{
+ "Date": "Feb 2015",
+"location": "金門縣",
+"Price":  53418.8034188,
+"quantity": 1 
+},
+{
+ "Date": "Feb 2015",
+"location": "苗栗縣",
+"Price": 137826.4000274,
+"quantity": 35 
+},
+{
+ "Date": "Feb 2015",
+"location": "南投縣",
+"Price": 33576.64233577,
+"quantity": 1 
+},
+{
+ "Date": "Feb 2015",
+"location": "屏東縣",
+"Price":  51140.9780977,
+"quantity": 4 
+},
+{
+ "Date": "Feb 2015",
+"location": "臺北市",
+"Price": 1217847.441816,
+"quantity": 340 
+},
+{
+ "Date": "Feb 2015",
+"location": "臺東縣",
+"Price": 84533.98190306,
+"quantity": 13 
+},
+{
+ "Date": "Feb 2015",
+"location": "臺南市",
+"Price": 188820.7390735,
+"quantity": 13 
+},
+{
+ "Date": "Feb 2015",
+"location": "臺中市",
+"Price": 423905.6824307,
+"quantity": 149 
+},
+{
+ "Date": "Feb 2015",
+"location": "桃園縣",
+"Price": 309184.5104349,
+"quantity": 16 
+},
+{
+ "Date": "Feb 2015",
+"location": "新北市",
+"Price": 728053.0996191,
+"quantity": 24 
+},
+{
+ "Date": "Feb 2015",
+"location": "新竹市",
+"Price": 337214.4215489,
+"quantity": 95 
+},
+{
+ "Date": "Feb 2015",
+"location": "新竹縣",
+"Price": 367200.6037273,
+"quantity": 32 
+},
+{
+ "Date": "Feb 2015",
+"location": "宜蘭縣",
+"Price": 251341.3800246,
+"quantity": 163 
+},
+{
+ "Date": "Feb 2015",
+"location": "雲林縣",
+"Price": 68058.71201399,
+"quantity": 25 
+},
+{
+ "Date": "Feb 2015",
+"location": "彰化縣",
+"Price":  96398.1695224,
+"quantity": 10 
+},
+{
+ "Date": "Mar 2015",
+"location": "高雄市",
+"Price": 289866.9875391,
+"quantity": 44 
+},
+{
+ "Date": "Mar 2015",
+"location": "花蓮縣",
+"Price": 216496.7991024,
+"quantity": 17 
+},
+{
+ "Date": "Mar 2015",
+"location": "基隆市",
+"Price": 190065.7990251,
+"quantity": 81 
+},
+{
+ "Date": "Mar 2015",
+"location": "嘉義市",
+"Price": 147759.4416746,
+"quantity": 65 
+},
+{
+ "Date": "Mar 2015",
+"location": "嘉義縣",
+"Price":  19236.1518866,
+"quantity": 2 
+},
+{
+ "Date": "Mar 2015",
+"location": "金門縣",
+"Price": 128665.5912807,
+"quantity": 7 
+},
+{
+ "Date": "Mar 2015",
+"location": "苗栗縣",
+"Price": 104614.1317183,
+"quantity": 42 
+},
+{
+ "Date": "Mar 2015",
+"location": "南投縣",
+"Price": 36830.96186011,
+"quantity": 2 
+},
+{
+ "Date": "Mar 2015",
+"location": "澎湖縣",
+"Price": 97404.95428879,
+"quantity": 5 
+},
+{
+ "Date": "Mar 2015",
+"location": "屏東縣",
+"Price": 70216.65698805,
+"quantity": 6 
+},
+{
+ "Date": "Mar 2015",
+"location": "臺北市",
+"Price": 2614764.968412,
+"quantity": 252 
+},
+{
+ "Date": "Mar 2015",
+"location": "臺東縣",
+"Price": 54142.87945492,
+"quantity": 25 
+},
+{
+ "Date": "Mar 2015",
+"location": "臺南市",
+"Price": 35712.01528049,
+"quantity": 6 
+},
+{
+ "Date": "Mar 2015",
+"location": "臺中市",
+"Price": 327911.1500644,
+"quantity": 37 
+},
+{
+ "Date": "Mar 2015",
+"location": "桃園縣",
+"Price": 410213.8939502,
+"quantity": 51 
+},
+{
+ "Date": "Mar 2015",
+"location": "新北市",
+"Price": 681714.1470555,
+"quantity": 25 
+},
+{
+ "Date": "Mar 2015",
+"location": "新竹市",
+"Price": 383866.6007543,
+"quantity": 177 
+},
+{
+ "Date": "Mar 2015",
+"location": "新竹縣",
+"Price": 254957.1699787,
+"quantity": 4 
+},
+{
+ "Date": "Mar 2015",
+"location": "宜蘭縣",
+"Price": 128875.1791857,
+"quantity": 109 
+},
+{
+ "Date": "Mar 2015",
+"location": "雲林縣",
+"Price": 52283.23985412,
+"quantity": 9 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .showControls(false)
+  .margin({
+ "left":    130 
+})
+          
+        chart.xAxis
+  .axisLabel("年份")
+
+        
+        
+        chart.yAxis
+  .axisLabel("平均單價")
+  .width(   100)
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>

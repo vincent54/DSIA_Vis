@@ -1,0 +1,4689 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://nvd3.org/assets/css/nv.d3.css'>
+    
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://timelyportfolio.github.io/rCharts_nvd3_tests/libraries/widgets/nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
+    <script src='http://nvd3.org/assets/lib/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart2123516a8502' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart2123516a8502()
+    });
+    function drawchart2123516a8502(){  
+      var opts = {
+ "dom": "chart2123516a8502",
+"width":    800,
+"height":    400,
+"x": "SF",
+"y": "SFprice",
+"group": "BuildType",
+"type": "scatterChart",
+"id": "chart2123516a8502" 
+},
+        data = [
+ {
+ "SF":          50.19,
+"SFprice": 418555.9818626,
+"BuildType": "公寓" 
+},
+{
+ "SF":          108.2,
+"SFprice": 1554585.152838,
+"BuildType": "華廈" 
+},
+{
+ "SF":         254.37,
+"SFprice": 909531.8942518,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          35.62,
+"SFprice": 2857142.857143,
+"BuildType": "其他" 
+},
+{
+ "SF":          41.29,
+"SFprice": 248324.3449782,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         123.93,
+"SFprice": 175819.8340577,
+"BuildType": "公寓" 
+},
+{
+ "SF":         158.29,
+"SFprice": 787833.2707473,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          93.98,
+"SFprice": 468217.0542636,
+"BuildType": "公寓" 
+},
+{
+ "SF":           69.8,
+"SFprice": 1218292.682927,
+"BuildType": "公寓" 
+},
+{
+ "SF":          33.71,
+"SFprice": 677595.6284153,
+"BuildType": "其他" 
+},
+{
+ "SF":          33.71,
+"SFprice": 604215.4566745,
+"BuildType": "其他" 
+},
+{
+ "SF":          45.64,
+"SFprice": 151238.5919166,
+"BuildType": "公寓" 
+},
+{
+ "SF":          29.39,
+"SFprice": 2126245.847176,
+"BuildType": "套房" 
+},
+{
+ "SF":          94.01,
+"SFprice": 300751.8796992,
+"BuildType": "公寓" 
+},
+{
+ "SF":         186.51,
+"SFprice": 1631701.631702,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          32.81,
+"SFprice": 5769230.769231,
+"BuildType": "其他" 
+},
+{
+ "SF":         142.31,
+"SFprice": 594059.4059406,
+"BuildType": "公寓" 
+},
+{
+ "SF":         314.67,
+"SFprice":  4053795.13633,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           5.09,
+"SFprice":      100000000,
+"BuildType": "其他" 
+},
+{
+ "SF":             34,
+"SFprice": 1963276.836158,
+"BuildType": "套房" 
+},
+{
+ "SF":          41.07,
+"SFprice": 1043165.467626,
+"BuildType": "其他" 
+},
+{
+ "SF":          78.32,
+"SFprice": 1686597.938144,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          59.54,
+"SFprice": 679024.3902439,
+"BuildType": "公寓" 
+},
+{
+ "SF":         117.95,
+"SFprice": 173010.3806228,
+"BuildType": "公寓" 
+},
+{
+ "SF":         178.39,
+"SFprice": 1277378.097522,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          98.36,
+"SFprice": 1146650.573325,
+"BuildType": "華廈" 
+},
+{
+ "SF":         178.39,
+"SFprice": 1360911.270983,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         178.39,
+"SFprice": 1367306.155076,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         133.49,
+"SFprice": 1394936.708861,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         125.47,
+"SFprice": 2600408.441116,
+"BuildType": "店面" 
+},
+{
+ "SF":          74.02,
+"SFprice": 747756.7298106,
+"BuildType": "公寓" 
+},
+{
+ "SF":          62.57,
+"SFprice": 2179968.701095,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          31.34,
+"SFprice": 2863247.863248,
+"BuildType": "套房" 
+},
+{
+ "SF":          43.49,
+"SFprice": 696864.1114983,
+"BuildType": "公寓" 
+},
+{
+ "SF":         160.13,
+"SFprice": 2164179.104478,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         115.23,
+"SFprice": 1018711.018711,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           1.47,
+"SFprice":       30000000,
+"BuildType": "其他" 
+},
+{
+ "SF":         110.37,
+"SFprice": 894813.7326516,
+"BuildType": "店面" 
+},
+{
+ "SF":          89.76,
+"SFprice": 490225.5639098,
+"BuildType": "公寓" 
+},
+{
+ "SF":          73.18,
+"SFprice":   302537.41054,
+"BuildType": "公寓" 
+},
+{
+ "SF":         130.42,
+"SFprice": 3494623.655914,
+"BuildType": "其他" 
+},
+{
+ "SF":          54.71,
+"SFprice": 824983.2999332,
+"BuildType": "套房" 
+},
+{
+ "SF":          34.75,
+"SFprice": 2764857.881137,
+"BuildType": "套房" 
+},
+{
+ "SF":          58.49,
+"SFprice": 1702127.659574,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          71.52,
+"SFprice": 634178.9052069,
+"BuildType": "其他" 
+},
+{
+ "SF":          535.2,
+"SFprice":  1032215.53926,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         354.33,
+"SFprice": 1598879.103283,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         394.34,
+"SFprice": 1824475.387331,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         353.63,
+"SFprice": 1701361.088871,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         102.93,
+"SFprice": 810337.2755147,
+"BuildType": "華廈" 
+},
+{
+ "SF":         161.09,
+"SFprice": 833333.3333333,
+"BuildType": "店面" 
+},
+{
+ "SF":         109.27,
+"SFprice": 532463.0711096,
+"BuildType": "公寓" 
+},
+{
+ "SF":          63.71,
+"SFprice": 985507.2463768,
+"BuildType": "華廈" 
+},
+{
+ "SF":          73.75,
+"SFprice":  831225.153596,
+"BuildType": "公寓" 
+},
+{
+ "SF":         139.53,
+"SFprice":  479057.591623,
+"BuildType": "華廈" 
+},
+{
+ "SF":         120.61,
+"SFprice": 248756.2189055,
+"BuildType": "公寓" 
+},
+{
+ "SF":         174.21,
+"SFprice": 393442.6229508,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          77.57,
+"SFprice": 501639.3442623,
+"BuildType": "公寓" 
+},
+{
+ "SF":           1.19,
+"SFprice": 4324324.324324,
+"BuildType": "其他" 
+},
+{
+ "SF":         243.16,
+"SFprice": 1186790.505676,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         156.88,
+"SFprice": 1107011.070111,
+"BuildType": "華廈" 
+},
+{
+ "SF":         339.59,
+"SFprice": 1375938.139641,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         116.34,
+"SFprice": 626543.2098765,
+"BuildType": "公寓" 
+},
+{
+ "SF":          82.31,
+"SFprice": 452830.1886792,
+"BuildType": "公寓" 
+},
+{
+ "SF":         138.13,
+"SFprice": 2455598.455598,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          86.55,
+"SFprice": 381578.9473684,
+"BuildType": "公寓" 
+},
+{
+ "SF":          104.2,
+"SFprice": 527777.7777778,
+"BuildType": "公寓" 
+},
+{
+ "SF":          67.65,
+"SFprice": 367832.1678322,
+"BuildType": "公寓" 
+},
+{
+ "SF":         111.96,
+"SFprice": 547418.5280117,
+"BuildType": "公寓" 
+},
+{
+ "SF":          97.85,
+"SFprice": 297531.1247099,
+"BuildType": "公寓" 
+},
+{
+ "SF":          48.25,
+"SFprice": 1539893.617021,
+"BuildType": "套房" 
+},
+{
+ "SF":          88.45,
+"SFprice": 271739.1304348,
+"BuildType": "華廈" 
+},
+{
+ "SF":         180.61,
+"SFprice": 1482265.749074,
+"BuildType": "華廈" 
+},
+{
+ "SF":          45.21,
+"SFprice": 3488372.093023,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         171.29,
+"SFprice": 642472.4288279,
+"BuildType": "華廈" 
+},
+{
+ "SF":         113.06,
+"SFprice": 189189.1891892,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          41.45,
+"SFprice": 517647.0588235,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":             70,
+"SFprice": 1640331.075997,
+"BuildType": "店面" 
+},
+{
+ "SF":          49.62,
+"SFprice":  3675850.89141,
+"BuildType": "套房" 
+},
+{
+ "SF":         143.51,
+"SFprice": 1248211.731044,
+"BuildType": "華廈" 
+},
+{
+ "SF":          67.54,
+"SFprice": 2032742.155525,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           95.2,
+"SFprice": 1294117.647059,
+"BuildType": "華廈" 
+},
+{
+ "SF":          33.79,
+"SFprice":  1534883.72093,
+"BuildType": "套房" 
+},
+{
+ "SF":         107.77,
+"SFprice": 418300.6535948,
+"BuildType": "公寓" 
+},
+{
+ "SF":          84.18,
+"SFprice": 931435.9637775,
+"BuildType": "華廈" 
+},
+{
+ "SF":         489.82,
+"SFprice": 3712203.023758,
+"BuildType": "店面" 
+},
+{
+ "SF":          88.72,
+"SFprice": 666893.5011909,
+"BuildType": "華廈" 
+},
+{
+ "SF":         182.87,
+"SFprice":  1266730.40153,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         110.37,
+"SFprice": 275427.1082803,
+"BuildType": "公寓" 
+},
+{
+ "SF":          94.45,
+"SFprice": 598455.5984556,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          67.14,
+"SFprice": 576271.1864407,
+"BuildType": "公寓" 
+},
+{
+ "SF":         355.31,
+"SFprice": 515806.9883527,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         198.76,
+"SFprice": 1158018.176488,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          36.43,
+"SFprice": 3674121.405751,
+"BuildType": "套房" 
+},
+{
+ "SF":         101.82,
+"SFprice": 723514.2118863,
+"BuildType": "公寓" 
+},
+{
+ "SF":          53.13,
+"SFprice": 1619961.612284,
+"BuildType": "華廈" 
+},
+{
+ "SF":         117.88,
+"SFprice":   137231.50358,
+"BuildType": "公寓" 
+},
+{
+ "SF":         150.89,
+"SFprice": 357663.1701632,
+"BuildType": "華廈" 
+},
+{
+ "SF":         105.32,
+"SFprice": 362068.9655172,
+"BuildType": "公寓" 
+},
+{
+ "SF":            487,
+"SFprice": 373015.8730159,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         122.18,
+"SFprice":  1465611.68594,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":            110,
+"SFprice": 1037992.831541,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          114.7,
+"SFprice": 178571.4285714,
+"BuildType": "公寓" 
+},
+{
+ "SF":          327.7,
+"SFprice": 102515.2857614,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         212.25,
+"SFprice": 1464078.992169,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          32.31,
+"SFprice": 723684.2105263,
+"BuildType": "套房" 
+},
+{
+ "SF":         227.83,
+"SFprice": 884599.9195818,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          97.37,
+"SFprice": 3115384.615385,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          40.85,
+"SFprice": 591133.0049261,
+"BuildType": "套房" 
+},
+{
+ "SF":             44,
+"SFprice": 1266912.669127,
+"BuildType": "套房" 
+},
+{
+ "SF":          71.15,
+"SFprice":  1199238.57868,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         110.22,
+"SFprice": 1307847.082495,
+"BuildType": "公寓" 
+},
+{
+ "SF":          83.03,
+"SFprice": 1169212.690952,
+"BuildType": "華廈" 
+},
+{
+ "SF":         133.37,
+"SFprice": 1166290.443943,
+"BuildType": "華廈" 
+},
+{
+ "SF":          98.57,
+"SFprice":   663246.61048,
+"BuildType": "公寓" 
+},
+{
+ "SF":         107.44,
+"SFprice": 686241.1347518,
+"BuildType": "華廈" 
+},
+{
+ "SF":          92.25,
+"SFprice": 39285714.28571,
+"BuildType": "其他" 
+},
+{
+ "SF":          41.39,
+"SFprice": 307820.2995008,
+"BuildType": "其他" 
+},
+{
+ "SF":           70.2,
+"SFprice": 1749271.137026,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         107.52,
+"SFprice": 506842.3720223,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":        2342.74,
+"SFprice": 633075.3071854,
+"BuildType": "廠辦" 
+},
+{
+ "SF":         219.82,
+"SFprice": 1625231.910946,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          37.45,
+"SFprice": 2514792.899408,
+"BuildType": "套房" 
+},
+{
+ "SF":         344.25,
+"SFprice": 852017.9372197,
+"BuildType": "華廈" 
+},
+{
+ "SF":           60.1,
+"SFprice":  917780.061665,
+"BuildType": "店面" 
+},
+{
+ "SF":         144.97,
+"SFprice": 366831.0727497,
+"BuildType": "華廈" 
+},
+{
+ "SF":           43.2,
+"SFprice": 1285930.408472,
+"BuildType": "套房" 
+},
+{
+ "SF":         113.41,
+"SFprice": 583203.7325039,
+"BuildType": "其他" 
+},
+{
+ "SF":          44.47,
+"SFprice": 1463046.757164,
+"BuildType": "套房" 
+},
+{
+ "SF":          48.96,
+"SFprice": 551876.3796909,
+"BuildType": "公寓" 
+},
+{
+ "SF":          39.54,
+"SFprice": 541089.5660203,
+"BuildType": "套房" 
+},
+{
+ "SF":         118.98,
+"SFprice": 492268.0412371,
+"BuildType": "華廈" 
+},
+{
+ "SF":          39.57,
+"SFprice": 1985645.933014,
+"BuildType": "套房" 
+},
+{
+ "SF":         124.92,
+"SFprice": 1789473.684211,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          25.23,
+"SFprice": 136157.3373676,
+"BuildType": "公寓" 
+},
+{
+ "SF":          81.27,
+"SFprice": 274193.5483871,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         113.26,
+"SFprice": 362573.0994152,
+"BuildType": "公寓" 
+},
+{
+ "SF":         160.99,
+"SFprice": 2576950.608447,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          80.28,
+"SFprice": 725354.4345532,
+"BuildType": "公寓" 
+},
+{
+ "SF":         202.25,
+"SFprice": 456410.2564103,
+"BuildType": "華廈" 
+},
+{
+ "SF":         106.58,
+"SFprice": 1266447.368421,
+"BuildType": "公寓" 
+},
+{
+ "SF":          81.08,
+"SFprice": 566371.6814159,
+"BuildType": "公寓" 
+},
+{
+ "SF":          62.97,
+"SFprice": 2177293.934681,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         120.06,
+"SFprice": 189244.1860465,
+"BuildType": "公寓" 
+},
+{
+ "SF":         257.17,
+"SFprice": 1574612.403101,
+"BuildType": "華廈" 
+},
+{
+ "SF":          89.85,
+"SFprice": 280176.9538656,
+"BuildType": "華廈" 
+},
+{
+ "SF":         102.81,
+"SFprice": 426089.8066208,
+"BuildType": "公寓" 
+},
+{
+ "SF":         180.75,
+"SFprice":  354609.929078,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         101.55,
+"SFprice": 359712.2302158,
+"BuildType": "華廈" 
+},
+{
+ "SF":         121.64,
+"SFprice": 311707.3170732,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         181.53,
+"SFprice": 670391.0614525,
+"BuildType": "華廈" 
+},
+{
+ "SF":          95.63,
+"SFprice": 582050.3191889,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          34.58,
+"SFprice": 740740.7407407,
+"BuildType": "其他" 
+},
+{
+ "SF":          85.71,
+"SFprice": 1030303.030303,
+"BuildType": "華廈" 
+},
+{
+ "SF":          44.67,
+"SFprice": 744225.8340462,
+"BuildType": "套房" 
+},
+{
+ "SF":          39.55,
+"SFprice": 2038626.609442,
+"BuildType": "套房" 
+},
+{
+ "SF":          28.14,
+"SFprice": 1593406.593407,
+"BuildType": "其他" 
+},
+{
+ "SF":          90.88,
+"SFprice": 445538.4615385,
+"BuildType": "公寓" 
+},
+{
+ "SF":          34.29,
+"SFprice":       10950000,
+"BuildType": "套房" 
+},
+{
+ "SF":          77.01,
+"SFprice": 1442307.692308,
+"BuildType": "華廈" 
+},
+{
+ "SF":          77.01,
+"SFprice": 1005244.755245,
+"BuildType": "華廈" 
+},
+{
+ "SF":          36.76,
+"SFprice": 637744.0347072,
+"BuildType": "公寓" 
+},
+{
+ "SF":          79.71,
+"SFprice": 330961.9548407,
+"BuildType": "公寓" 
+},
+{
+ "SF":         418.28,
+"SFprice": 1270110.076207,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":        1045.01,
+"SFprice": 686841.3942178,
+"BuildType": "廠辦" 
+},
+{
+ "SF":           33.7,
+"SFprice": 1407792.207792,
+"BuildType": "套房" 
+},
+{
+ "SF":         104.44,
+"SFprice": 1159574.468085,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         302.43,
+"SFprice": 583090.3790087,
+"BuildType": "其他" 
+},
+{
+ "SF":           37.8,
+"SFprice": 654205.6074766,
+"BuildType": "其他" 
+},
+{
+ "SF":          83.13,
+"SFprice": 893587.0331219,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          84.83,
+"SFprice": 498461.5384615,
+"BuildType": "公寓" 
+},
+{
+ "SF":         276.93,
+"SFprice":  1200356.98349,
+"BuildType": "其他" 
+},
+{
+ "SF":          40.73,
+"SFprice": 3333333.333333,
+"BuildType": "其他" 
+},
+{
+ "SF":       19661.68,
+"SFprice": 742004.3438948,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          91.85,
+"SFprice": 332115.5762205,
+"BuildType": "華廈" 
+},
+{
+ "SF":         340.54,
+"SFprice":  492572.335921,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         376.81,
+"SFprice": 477257.7104025,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         100.92,
+"SFprice": 621118.0124224,
+"BuildType": "公寓" 
+},
+{
+ "SF":          62.87,
+"SFprice": 659340.6593407,
+"BuildType": "公寓" 
+},
+{
+ "SF":         234.03,
+"SFprice": 332115.5762205,
+"BuildType": "華廈" 
+},
+{
+ "SF":          92.36,
+"SFprice": 460122.6993865,
+"BuildType": "其他" 
+},
+{
+ "SF":         553.11,
+"SFprice": 4030267.480056,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          39.07,
+"SFprice": 133928.5714286,
+"BuildType": "公寓" 
+},
+{
+ "SF":         116.95,
+"SFprice": 474330.3571429,
+"BuildType": "公寓" 
+},
+{
+ "SF":          43.63,
+"SFprice": 3217158.176944,
+"BuildType": "套房" 
+},
+{
+ "SF":         105.62,
+"SFprice": 422535.2112676,
+"BuildType": "公寓" 
+},
+{
+ "SF":          37.58,
+"SFprice": 2991596.638655,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          77.02,
+"SFprice": 2129963.898917,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          99.71,
+"SFprice":  566630.552546,
+"BuildType": "公寓" 
+},
+{
+ "SF":          84.78,
+"SFprice": 643333.3333333,
+"BuildType": "公寓" 
+},
+{
+ "SF":          74.21,
+"SFprice": 238095.2380952,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          61.78,
+"SFprice": 381887.6159302,
+"BuildType": "公寓" 
+},
+{
+ "SF":         105.23,
+"SFprice": 472520.0275292,
+"BuildType": "公寓" 
+},
+{
+ "SF":          17.54,
+"SFprice": 472844.6280992,
+"BuildType": "公寓" 
+},
+{
+ "SF":          61.54,
+"SFprice": 829145.7286432,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         130.25,
+"SFprice": 1348519.362187,
+"BuildType": "華廈" 
+},
+{
+ "SF":         163.18,
+"SFprice": 1032110.091743,
+"BuildType": "華廈" 
+},
+{
+ "SF":          97.76,
+"SFprice": 460066.2495399,
+"BuildType": "公寓" 
+},
+{
+ "SF":         184.52,
+"SFprice": 899011.0878034,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          61.43,
+"SFprice": 783699.0595611,
+"BuildType": "套房" 
+},
+{
+ "SF":          92.47,
+"SFprice": 459066.5646519,
+"BuildType": "公寓" 
+},
+{
+ "SF":         101.59,
+"SFprice": 425940.1381427,
+"BuildType": "公寓" 
+},
+{
+ "SF":          34.86,
+"SFprice": 1400832.177531,
+"BuildType": "套房" 
+},
+{
+ "SF":          110.1,
+"SFprice": 508351.4887436,
+"BuildType": "華廈" 
+},
+{
+ "SF":         119.73,
+"SFprice":  762358.546754,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         107.34,
+"SFprice":  702614.379085,
+"BuildType": "華廈" 
+},
+{
+ "SF":         161.72,
+"SFprice":         437500,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         128.88,
+"SFprice": 2994483.845548,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          13.91,
+"SFprice":         400000,
+"BuildType": "其他" 
+},
+{
+ "SF":         301.63,
+"SFprice":  1215668.61774,
+"BuildType": "華廈" 
+},
+{
+ "SF":            363,
+"SFprice": 1221327.263176,
+"BuildType": "華廈" 
+},
+{
+ "SF":         301.63,
+"SFprice": 1122917.604683,
+"BuildType": "華廈" 
+},
+{
+ "SF":         301.63,
+"SFprice": 1201260.693381,
+"BuildType": "華廈" 
+},
+{
+ "SF":         236.74,
+"SFprice": 1210786.868161,
+"BuildType": "華廈" 
+},
+{
+ "SF":         236.74,
+"SFprice": 1210786.868161,
+"BuildType": "華廈" 
+},
+{
+ "SF":         237.02,
+"SFprice": 1169880.145909,
+"BuildType": "華廈" 
+},
+{
+ "SF":         302.65,
+"SFprice": 1204830.053667,
+"BuildType": "華廈" 
+},
+{
+ "SF":         303.75,
+"SFprice": 1343381.389253,
+"BuildType": "華廈" 
+},
+{
+ "SF":         333.22,
+"SFprice": 1262201.146019,
+"BuildType": "華廈" 
+},
+{
+ "SF":         373.71,
+"SFprice": 1124713.083397,
+"BuildType": "華廈" 
+},
+{
+ "SF":          304.5,
+"SFprice": 1215596.330275,
+"BuildType": "華廈" 
+},
+{
+ "SF":         133.02,
+"SFprice":  1561524.04747,
+"BuildType": "華廈" 
+},
+{
+ "SF":          81.84,
+"SFprice": 1433296.582139,
+"BuildType": "華廈" 
+},
+{
+ "SF":         120.68,
+"SFprice": 476923.0769231,
+"BuildType": "公寓" 
+},
+{
+ "SF":         162.43,
+"SFprice": 710659.8984772,
+"BuildType": "華廈" 
+},
+{
+ "SF":         166.07,
+"SFprice": 1447191.011236,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         119.02,
+"SFprice": 723622.7824463,
+"BuildType": "華廈" 
+},
+{
+ "SF":          46.46,
+"SFprice": 2323232.323232,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          99.09,
+"SFprice":  733608.436497,
+"BuildType": "華廈" 
+},
+{
+ "SF":           45.8,
+"SFprice": 689795.9183673,
+"BuildType": "華廈" 
+},
+{
+ "SF":         109.39,
+"SFprice": 1118072.289157,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          33.93,
+"SFprice": 3704819.277108,
+"BuildType": "套房" 
+},
+{
+ "SF":         137.61,
+"SFprice": 1208499.335989,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          43.78,
+"SFprice": 137709.4931617,
+"BuildType": "套房" 
+},
+{
+ "SF":         110.74,
+"SFprice": 920849.4208494,
+"BuildType": "華廈" 
+},
+{
+ "SF":         425.67,
+"SFprice":  2951541.85022,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         119.15,
+"SFprice": 397916.6666667,
+"BuildType": "公寓" 
+},
+{
+ "SF":          96.77,
+"SFprice": 2171932.402645,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          75.09,
+"SFprice": 816326.5306122,
+"BuildType": "華廈" 
+},
+{
+ "SF":         130.51,
+"SFprice": 1262272.089762,
+"BuildType": "華廈" 
+},
+{
+ "SF":          36.14,
+"SFprice": 608510.6382979,
+"BuildType": "套房" 
+},
+{
+ "SF":          108.4,
+"SFprice": 2516556.291391,
+"BuildType": "店面" 
+},
+{
+ "SF":          71.16,
+"SFprice": 823529.4117647,
+"BuildType": "公寓" 
+},
+{
+ "SF":           41.9,
+"SFprice": 1259426.847662,
+"BuildType": "套房" 
+},
+{
+ "SF":          23.78,
+"SFprice": 504322.7665706,
+"BuildType": "公寓" 
+},
+{
+ "SF":         303.49,
+"SFprice": 1947985.504157,
+"BuildType": "華廈" 
+},
+{
+ "SF":         118.86,
+"SFprice": 1267132.867133,
+"BuildType": "華廈" 
+},
+{
+ "SF":          123.3,
+"SFprice": 1811175.337187,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           91.7,
+"SFprice": 307066.2227155,
+"BuildType": "公寓" 
+},
+{
+ "SF":         198.67,
+"SFprice": 741746.3075586,
+"BuildType": "華廈" 
+},
+{
+ "SF":         202.79,
+"SFprice":   734914.90459,
+"BuildType": "華廈" 
+},
+{
+ "SF":          80.91,
+"SFprice": 1239157.372986,
+"BuildType": "華廈" 
+},
+{
+ "SF":          288.2,
+"SFprice": 520267.4467196,
+"BuildType": "華廈" 
+},
+{
+ "SF":         160.06,
+"SFprice": 312121.9572166,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          77.47,
+"SFprice": 153318.4246891,
+"BuildType": "公寓" 
+},
+{
+ "SF":         193.58,
+"SFprice": 905888.2737796,
+"BuildType": "華廈" 
+},
+{
+ "SF":         111.68,
+"SFprice": 2389873.417722,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":           57.7,
+"SFprice": 158461.5384615,
+"BuildType": "公寓" 
+},
+{
+ "SF":          74.24,
+"SFprice": 634222.2222222,
+"BuildType": "公寓" 
+},
+{
+ "SF":          50.57,
+"SFprice": 427880.9110629,
+"BuildType": "套房" 
+},
+{
+ "SF":          29.81,
+"SFprice": 2857142.857143,
+"BuildType": "其他" 
+},
+{
+ "SF":          53.87,
+"SFprice": 620020.4290092,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         173.63,
+"SFprice": 1331368.854204,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         104.89,
+"SFprice": 1062134.891131,
+"BuildType": "公寓" 
+},
+{
+ "SF":         435.65,
+"SFprice": 2267158.671587,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          33.62,
+"SFprice": 4390070.921986,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         110.46,
+"SFprice": 548902.1956088,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          91.56,
+"SFprice": 531382.1138211,
+"BuildType": "公寓" 
+},
+{
+ "SF":          47.89,
+"SFprice": 1004016.064257,
+"BuildType": "套房" 
+},
+{
+ "SF":         240.56,
+"SFprice": 830748.7815685,
+"BuildType": "華廈" 
+},
+{
+ "SF":         173.77,
+"SFprice": 673710.6017192,
+"BuildType": "公寓" 
+},
+{
+ "SF":          101.4,
+"SFprice": 313432.8358209,
+"BuildType": "透天厝" 
+},
+{
+ "SF":            222,
+"SFprice":  811176.205498,
+"BuildType": "華廈" 
+},
+{
+ "SF":         150.31,
+"SFprice": 506375.2276867,
+"BuildType": "華廈" 
+},
+{
+ "SF":         119.93,
+"SFprice":  739817.123857,
+"BuildType": "公寓" 
+},
+{
+ "SF":         101.11,
+"SFprice": 459896.9830758,
+"BuildType": "華廈" 
+},
+{
+ "SF":         137.68,
+"SFprice": 198895.0276243,
+"BuildType": "公寓" 
+},
+{
+ "SF":         170.88,
+"SFprice": 507042.2535211,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          68.26,
+"SFprice": 420949.5839452,
+"BuildType": "華廈" 
+},
+{
+ "SF":         126.72,
+"SFprice": 582398.6194996,
+"BuildType": "華廈" 
+},
+{
+ "SF":         355.58,
+"SFprice": 1588071.570577,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         354.44,
+"SFprice": 1281431.334623,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          315.1,
+"SFprice": 1444779.116466,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         351.06,
+"SFprice": 1515212.169736,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          39.39,
+"SFprice": 731070.4960836,
+"BuildType": "其他" 
+},
+{
+ "SF":         124.59,
+"SFprice": 284637.6811594,
+"BuildType": "華廈" 
+},
+{
+ "SF":         129.18,
+"SFprice": 287661.4060258,
+"BuildType": "華廈" 
+},
+{
+ "SF":          58.19,
+"SFprice": 1308016.877637,
+"BuildType": "套房" 
+},
+{
+ "SF":          89.64,
+"SFprice": 3526645.768025,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          43.22,
+"SFprice": 1482558.139535,
+"BuildType": "套房" 
+},
+{
+ "SF":         102.13,
+"SFprice": 300525.9203606,
+"BuildType": "公寓" 
+},
+{
+ "SF":         114.43,
+"SFprice": 2025316.455696,
+"BuildType": "華廈" 
+},
+{
+ "SF":         120.32,
+"SFprice": 1024170.421958,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         551.02,
+"SFprice": 4083215.796897,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         543.15,
+"SFprice": 3949929.478138,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         573.03,
+"SFprice": 4218676.677616,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          78.24,
+"SFprice":         568000,
+"BuildType": "公寓" 
+},
+{
+ "SF":         537.08,
+"SFprice": 4168039.538715,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         537.08,
+"SFprice": 4078606.730996,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          51.73,
+"SFprice": 1423135.464231,
+"BuildType": "套房" 
+},
+{
+ "SF":          52.35,
+"SFprice": 3243467.357513,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          60.72,
+"SFprice": 3212576.286353,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          52.35,
+"SFprice": 3242711.398964,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          60.72,
+"SFprice": 3213229.082774,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          286.2,
+"SFprice": 603539.2735175,
+"BuildType": "華廈" 
+},
+{
+ "SF":         188.75,
+"SFprice":         179200,
+"BuildType": "公寓" 
+},
+{
+ "SF":          181.2,
+"SFprice": 460193.2811781,
+"BuildType": "華廈" 
+},
+{
+ "SF":          178.5,
+"SFprice": 1849865.951743,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          32.41,
+"SFprice": 14318181.81818,
+"BuildType": "其他" 
+},
+{
+ "SF":          32.41,
+"SFprice": 14318181.81818,
+"BuildType": "其他" 
+},
+{
+ "SF":         306.47,
+"SFprice": 875075.4375377,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         179.18,
+"SFprice": 299227.7992278,
+"BuildType": "公寓" 
+},
+{
+ "SF":           31.4,
+"SFprice": 1704889.502762,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          31.33,
+"SFprice": 681818.1818182,
+"BuildType": "套房" 
+},
+{
+ "SF":          59.66,
+"SFprice": 1479251.423922,
+"BuildType": "店面" 
+},
+{
+ "SF":          64.79,
+"SFprice": 1044012.282497,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         250.28,
+"SFprice": 1322351.604658,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         143.47,
+"SFprice": 1261326.567597,
+"BuildType": "華廈" 
+},
+{
+ "SF":         212.33,
+"SFprice": 1654331.028874,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          87.35,
+"SFprice": 539325.8426966,
+"BuildType": "華廈" 
+},
+{
+ "SF":         581.69,
+"SFprice": 1511508.072827,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         187.45,
+"SFprice": 178147.2684086,
+"BuildType": "公寓" 
+},
+{
+ "SF":          72.51,
+"SFprice":         525000,
+"BuildType": "公寓" 
+},
+{
+ "SF":         233.23,
+"SFprice":         825000,
+"BuildType": "公寓" 
+},
+{
+ "SF":         145.03,
+"SFprice":         500000,
+"BuildType": "公寓" 
+},
+{
+ "SF":          85.53,
+"SFprice": 517241.3793103,
+"BuildType": "公寓" 
+},
+{
+ "SF":          85.53,
+"SFprice": 517241.3793103,
+"BuildType": "公寓" 
+},
+{
+ "SF":         246.36,
+"SFprice": 1463150.289017,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         152.93,
+"SFprice": 391330.5237809,
+"BuildType": "華廈" 
+},
+{
+ "SF":          82.09,
+"SFprice": 450465.7070279,
+"BuildType": "公寓" 
+},
+{
+ "SF":         138.92,
+"SFprice": 710312.3662816,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          92.61,
+"SFprice": 671641.7910448,
+"BuildType": "店面" 
+},
+{
+ "SF":          43.93,
+"SFprice": 6578947.368421,
+"BuildType": "其他" 
+},
+{
+ "SF":         264.76,
+"SFprice": 1180207.288532,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          95.97,
+"SFprice": 1443312.101911,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          43.53,
+"SFprice": 3986486.486486,
+"BuildType": "套房" 
+},
+{
+ "SF":          34.92,
+"SFprice": 108200.4555809,
+"BuildType": "其他" 
+},
+{
+ "SF":          34.92,
+"SFprice": 108200.4555809,
+"BuildType": "其他" 
+},
+{
+ "SF":          67.79,
+"SFprice": 648674.2424242,
+"BuildType": "公寓" 
+},
+{
+ "SF":         175.22,
+"SFprice": 855188.1413911,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         149.07,
+"SFprice":  339219.330855,
+"BuildType": "公寓" 
+},
+{
+ "SF":           84.2,
+"SFprice": 541388.7799137,
+"BuildType": "公寓" 
+},
+{
+ "SF":         255.64,
+"SFprice": 1612659.098727,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          52.76,
+"SFprice": 282868.5258964,
+"BuildType": "套房" 
+},
+{
+ "SF":           99.4,
+"SFprice": 54482.75862069,
+"BuildType": "華廈" 
+},
+{
+ "SF":          36.61,
+"SFprice": 540275.0491159,
+"BuildType": "套房" 
+},
+{
+ "SF":          71.74,
+"SFprice":         150800,
+"BuildType": "公寓" 
+},
+{
+ "SF":          33.71,
+"SFprice": 650273.2240437,
+"BuildType": "其他" 
+},
+{
+ "SF":          47.39,
+"SFprice": 600600.6006006,
+"BuildType": "其他" 
+},
+{
+ "SF":          46.75,
+"SFprice": 14705882.35294,
+"BuildType": "其他" 
+},
+{
+ "SF":          43.23,
+"SFprice": 1882845.188285,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         118.59,
+"SFprice": 628342.2459893,
+"BuildType": "華廈" 
+},
+{
+ "SF":         111.64,
+"SFprice": 390003.7864445,
+"BuildType": "公寓" 
+},
+{
+ "SF":          31.63,
+"SFprice": 2056962.025316,
+"BuildType": "套房" 
+},
+{
+ "SF":          79.07,
+"SFprice": 425531.9148936,
+"BuildType": "公寓" 
+},
+{
+ "SF":         132.46,
+"SFprice": 764604.8109966,
+"BuildType": "華廈" 
+},
+{
+ "SF":         160.06,
+"SFprice": 3157894.736842,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         162.13,
+"SFprice": 3200692.041522,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          76.07,
+"SFprice":  438431.372549,
+"BuildType": "公寓" 
+},
+{
+ "SF":           20.5,
+"SFprice": 236923.0769231,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         132.73,
+"SFprice": 2418379.685611,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          91.94,
+"SFprice":  492681.185291,
+"BuildType": "公寓" 
+},
+{
+ "SF":          81.45,
+"SFprice":  438985.098671,
+"BuildType": "公寓" 
+},
+{
+ "SF":         258.74,
+"SFprice": 1865593.410708,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         148.58,
+"SFprice": 1977579.953841,
+"BuildType": "店面" 
+},
+{
+ "SF":         132.11,
+"SFprice": 521920.6680585,
+"BuildType": "公寓" 
+},
+{
+ "SF":          46.88,
+"SFprice": 750938.6733417,
+"BuildType": "套房" 
+},
+{
+ "SF":         589.47,
+"SFprice": 2057692.307692,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          77.96,
+"SFprice": 1930501.930502,
+"BuildType": "店面" 
+},
+{
+ "SF":         106.02,
+"SFprice": 1407299.270073,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          177.2,
+"SFprice": 993377.4834437,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          95.17,
+"SFprice": 1449275.362319,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          88.82,
+"SFprice": 285074.1573034,
+"BuildType": "公寓" 
+},
+{
+ "SF":         140.16,
+"SFprice": 934420.6591913,
+"BuildType": "華廈" 
+},
+{
+ "SF":           92.7,
+"SFprice":  419512.195122,
+"BuildType": "公寓" 
+},
+{
+ "SF":          86.07,
+"SFprice": 272018.8902007,
+"BuildType": "公寓" 
+},
+{
+ "SF":            103,
+"SFprice": 2150537.634409,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         118.87,
+"SFprice": 569230.7692308,
+"BuildType": "公寓" 
+},
+{
+ "SF":           73.9,
+"SFprice":  760989.010989,
+"BuildType": "公寓" 
+},
+{
+ "SF":          70.99,
+"SFprice": 972684.0855107,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          86.24,
+"SFprice": 2260122.699387,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          47.08,
+"SFprice": 889877.6418242,
+"BuildType": "華廈" 
+},
+{
+ "SF":          209.5,
+"SFprice": 1181981.981982,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          82.13,
+"SFprice": 1326226.012793,
+"BuildType": "華廈" 
+},
+{
+ "SF":          164.2,
+"SFprice": 2886164.914222,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           65.1,
+"SFprice": 1376344.086022,
+"BuildType": "公寓" 
+},
+{
+ "SF":         114.68,
+"SFprice": 887815.7503715,
+"BuildType": "華廈" 
+},
+{
+ "SF":         373.85,
+"SFprice": 2059118.955374,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          39.39,
+"SFprice": 731070.4960836,
+"BuildType": "其他" 
+},
+{
+ "SF":         265.13,
+"SFprice": 213351.6861666,
+"BuildType": "華廈" 
+},
+{
+ "SF":         354.33,
+"SFprice": 1681345.076061,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         151.06,
+"SFprice": 948047.0231323,
+"BuildType": "華廈" 
+},
+{
+ "SF":         353.21,
+"SFprice": 1582504.970179,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          356.5,
+"SFprice": 1610337.972167,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          82.71,
+"SFprice": 455054.6065528,
+"BuildType": "華廈" 
+},
+{
+ "SF":          301.8,
+"SFprice": 1327413.505402,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          40.85,
+"SFprice": 601307.1895425,
+"BuildType": "套房" 
+},
+{
+ "SF":         109.95,
+"SFprice": 438739.0315242,
+"BuildType": "公寓" 
+},
+{
+ "SF":         106.07,
+"SFprice": 884378.3979703,
+"BuildType": "公寓" 
+},
+{
+ "SF":         149.46,
+"SFprice": 829268.2926829,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          83.06,
+"SFprice": 447058.8235294,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          93.48,
+"SFprice": 838983.0508475,
+"BuildType": "公寓" 
+},
+{
+ "SF":         107.69,
+"SFprice": 726612.1707539,
+"BuildType": "公寓" 
+},
+{
+ "SF":         354.28,
+"SFprice": 1848906.560636,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         102.85,
+"SFprice": 193771.6262976,
+"BuildType": "華廈" 
+},
+{
+ "SF":          74.15,
+"SFprice": 201519.3922431,
+"BuildType": "華廈" 
+},
+{
+ "SF":          58.96,
+"SFprice": 298889.8377455,
+"BuildType": "套房" 
+},
+{
+ "SF":          74.59,
+"SFprice": 1495378.927911,
+"BuildType": "華廈" 
+},
+{
+ "SF":          61.69,
+"SFprice": 222717.1492205,
+"BuildType": "公寓" 
+},
+{
+ "SF":         144.97,
+"SFprice": 258764.6076795,
+"BuildType": "華廈" 
+},
+{
+ "SF":          70.25,
+"SFprice": 319669.0485145,
+"BuildType": "公寓" 
+},
+{
+ "SF":          70.76,
+"SFprice":  2151230.94959,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         152.18,
+"SFprice": 3319327.731092,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          60.13,
+"SFprice": 575856.4437194,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          46.56,
+"SFprice": 1773162.939297,
+"BuildType": "套房" 
+},
+{
+ "SF":          76.44,
+"SFprice": 587620.7887177,
+"BuildType": "華廈" 
+},
+{
+ "SF":          26.98,
+"SFprice": 511945.3924915,
+"BuildType": "套房" 
+},
+{
+ "SF":          91.94,
+"SFprice": 330511.8903668,
+"BuildType": "華廈" 
+},
+{
+ "SF":          50.88,
+"SFprice": 171830.9859155,
+"BuildType": "公寓" 
+},
+{
+ "SF":          124.6,
+"SFprice": 582580.8330906,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         215.59,
+"SFprice": 529324.5818336,
+"BuildType": "其他" 
+},
+{
+ "SF":          51.61,
+"SFprice":  971615.720524,
+"BuildType": "華廈" 
+},
+{
+ "SF":         171.07,
+"SFprice":  1043478.26087,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          51.29,
+"SFprice": 1742424.242424,
+"BuildType": "套房" 
+},
+{
+ "SF":         127.62,
+"SFprice": 323911.3207547,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          96.62,
+"SFprice": 540983.6065574,
+"BuildType": "公寓" 
+},
+{
+ "SF":         230.33,
+"SFprice": 1605591.235361,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         108.82,
+"SFprice": 385418.4235518,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          35.67,
+"SFprice": 1641791.044776,
+"BuildType": "套房" 
+},
+{
+ "SF":          25.08,
+"SFprice": 2475247.524752,
+"BuildType": "套房" 
+},
+{
+ "SF":            1.3,
+"SFprice": 536723.1638418,
+"BuildType": "其他" 
+},
+{
+ "SF":         161.05,
+"SFprice": 2783048.703352,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          83.21,
+"SFprice": 1160292.221745,
+"BuildType": "公寓" 
+},
+{
+ "SF":         116.86,
+"SFprice": 574300.0717875,
+"BuildType": "公寓" 
+},
+{
+ "SF":          45.84,
+"SFprice": 339726.0273973,
+"BuildType": "公寓" 
+},
+{
+ "SF":         164.21,
+"SFprice": 1230113.636364,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         181.46,
+"SFprice": 424444.1485821,
+"BuildType": "華廈" 
+},
+{
+ "SF":         199.67,
+"SFprice": 4824561.403509,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          44.94,
+"SFprice": 1408775.981524,
+"BuildType": "套房" 
+},
+{
+ "SF":          37.78,
+"SFprice": 1768479.776848,
+"BuildType": "套房" 
+},
+{
+ "SF":          25.27,
+"SFprice": 1917808.219178,
+"BuildType": "其他" 
+},
+{
+ "SF":         110.33,
+"SFprice": 1092715.231788,
+"BuildType": "店面" 
+},
+{
+ "SF":          82.44,
+"SFprice": 683870.9677419,
+"BuildType": "公寓" 
+},
+{
+ "SF":          80.99,
+"SFprice": 1204819.277108,
+"BuildType": "其他" 
+},
+{
+ "SF":         292.73,
+"SFprice": 1153217.568948,
+"BuildType": "華廈" 
+},
+{
+ "SF":         302.65,
+"SFprice": 1168381.037567,
+"BuildType": "華廈" 
+},
+{
+ "SF":         277.23,
+"SFprice": 1148851.148851,
+"BuildType": "華廈" 
+},
+{
+ "SF":         369.75,
+"SFprice": 1202229.576729,
+"BuildType": "華廈" 
+},
+{
+ "SF":         326.47,
+"SFprice": 1160803.021268,
+"BuildType": "華廈" 
+},
+{
+ "SF":           2.54,
+"SFprice": 1529411.764706,
+"BuildType": "其他" 
+},
+{
+ "SF":          64.06,
+"SFprice": 940525.5878285,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         152.18,
+"SFprice": 896778.9165447,
+"BuildType": "華廈" 
+},
+{
+ "SF":          25.09,
+"SFprice": 1428571.428571,
+"BuildType": "套房" 
+},
+{
+ "SF":          137.4,
+"SFprice": 1463687.150838,
+"BuildType": "華廈" 
+},
+{
+ "SF":         118.58,
+"SFprice": 412371.1340206,
+"BuildType": "公寓" 
+},
+{
+ "SF":         388.34,
+"SFprice": 1613527.533919,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         394.09,
+"SFprice": 1601268.331352,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         390.94,
+"SFprice": 1550279.329609,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         351.98,
+"SFprice": 1669135.308247,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           68.1,
+"SFprice":         280000,
+"BuildType": "公寓" 
+},
+{
+ "SF":          71.23,
+"SFprice": 1292202.227935,
+"BuildType": "華廈" 
+},
+{
+ "SF":          90.82,
+"SFprice": 968967.7010766,
+"BuildType": "華廈" 
+},
+{
+ "SF":          43.46,
+"SFprice": 610465.1162791,
+"BuildType": "其他" 
+},
+{
+ "SF":         355.58,
+"SFprice": 1651689.860835,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         391.83,
+"SFprice": 1711891.460495,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         351.68,
+"SFprice": 1625300.240192,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          85.85,
+"SFprice":  2657601.97775,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          70.13,
+"SFprice": 973968.2539683,
+"BuildType": "公寓" 
+},
+{
+ "SF":          41.92,
+"SFprice": 517598.3436853,
+"BuildType": "公寓" 
+},
+{
+ "SF":           9.88,
+"SFprice": 8823529.411765,
+"BuildType": "其他" 
+},
+{
+ "SF":         115.03,
+"SFprice": 2063197.026022,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         154.05,
+"SFprice": 920724.0948814,
+"BuildType": "華廈" 
+},
+{
+ "SF":          153.1,
+"SFprice": 597447.7958237,
+"BuildType": "華廈" 
+},
+{
+ "SF":          36.83,
+"SFprice": 2712962.962963,
+"BuildType": "套房" 
+},
+{
+ "SF":          31.58,
+"SFprice": 1636904.761905,
+"BuildType": "套房" 
+},
+{
+ "SF":         193.28,
+"SFprice": 797639.1231029,
+"BuildType": "店面" 
+},
+{
+ "SF":         121.85,
+"SFprice": 2045525.902669,
+"BuildType": "店面" 
+},
+{
+ "SF":          72.63,
+"SFprice": 577319.5876289,
+"BuildType": "公寓" 
+},
+{
+ "SF":         884.44,
+"SFprice": 2302287.822878,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         268.58,
+"SFprice": 1327224.052718,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         614.43,
+"SFprice": 1703118.831425,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         164.49,
+"SFprice": 1838671.411625,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          90.34,
+"SFprice":  3745318.35206,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         121.43,
+"SFprice": 887912.0879121,
+"BuildType": "華廈" 
+},
+{
+ "SF":          90.63,
+"SFprice": 87719.29824561,
+"BuildType": "華廈" 
+},
+{
+ "SF":          49.45,
+"SFprice": 455536.4044944,
+"BuildType": "套房" 
+},
+{
+ "SF":          82.37,
+"SFprice":  2245315.16184,
+"BuildType": "套房" 
+},
+{
+ "SF":         167.52,
+"SFprice": 706349.2063492,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         235.08,
+"SFprice": 1787139.689579,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         103.87,
+"SFprice":      488281.25,
+"BuildType": "公寓" 
+},
+{
+ "SF":          90.19,
+"SFprice": 1025641.025641,
+"BuildType": "華廈" 
+},
+{
+ "SF":         159.72,
+"SFprice": 925868.0012512,
+"BuildType": "華廈" 
+},
+{
+ "SF":          44.94,
+"SFprice": 2115987.460815,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           47.1,
+"SFprice": 430769.2307692,
+"BuildType": "公寓" 
+},
+{
+ "SF":          21.81,
+"SFprice": 1185770.750988,
+"BuildType": "套房" 
+},
+{
+ "SF":         132.95,
+"SFprice":  1662650.60241,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         155.97,
+"SFprice": 1061686.949224,
+"BuildType": "華廈" 
+},
+{
+ "SF":         140.34,
+"SFprice": 727590.2211874,
+"BuildType": "店面" 
+},
+{
+ "SF":         140.52,
+"SFprice": 303909.5907147,
+"BuildType": "公寓" 
+},
+{
+ "SF":           99.4,
+"SFprice": 222413.7931034,
+"BuildType": "華廈" 
+},
+{
+ "SF":          88.86,
+"SFprice": 208681.1352254,
+"BuildType": "公寓" 
+},
+{
+ "SF":         119.37,
+"SFprice": 288586.8553342,
+"BuildType": "華廈" 
+},
+{
+ "SF":          75.02,
+"SFprice": 369415.8075601,
+"BuildType": "華廈" 
+},
+{
+ "SF":         103.46,
+"SFprice": 450944.5460085,
+"BuildType": "公寓" 
+},
+{
+ "SF":         169.41,
+"SFprice": 1390699.695784,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         114.88,
+"SFprice": 496815.2866242,
+"BuildType": "華廈" 
+},
+{
+ "SF":         103.89,
+"SFprice": 1468594.667872,
+"BuildType": "店面" 
+},
+{
+ "SF":          52.97,
+"SFprice": 287555.7759048,
+"BuildType": "套房" 
+},
+{
+ "SF":         138.36,
+"SFprice": 579060.3386597,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         180.03,
+"SFprice": 852713.1782946,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         168.75,
+"SFprice": 724555.9627855,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          44.99,
+"SFprice": 464968.1528662,
+"BuildType": "公寓" 
+},
+{
+ "SF":          135.4,
+"SFprice": 248089.3592005,
+"BuildType": "華廈" 
+},
+{
+ "SF":          40.13,
+"SFprice": 673967.9865206,
+"BuildType": "套房" 
+},
+{
+ "SF":             84,
+"SFprice": 926829.2682927,
+"BuildType": "華廈" 
+},
+{
+ "SF":         110.85,
+"SFprice": 282033.8983051,
+"BuildType": "公寓" 
+},
+{
+ "SF":          48.23,
+"SFprice": 2062084.257206,
+"BuildType": "套房" 
+},
+{
+ "SF":          68.68,
+"SFprice": 468852.4590164,
+"BuildType": "公寓" 
+},
+{
+ "SF":          71.21,
+"SFprice": 1546391.752577,
+"BuildType": "華廈" 
+},
+{
+ "SF":         310.38,
+"SFprice": 1893659.180978,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          30.57,
+"SFprice": 1531690.140845,
+"BuildType": "套房" 
+},
+{
+ "SF":           38.4,
+"SFprice": 607976.6536965,
+"BuildType": "華廈" 
+},
+{
+ "SF":          27.99,
+"SFprice": 1624365.482234,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          42.59,
+"SFprice": 721726.1904762,
+"BuildType": "華廈" 
+},
+{
+ "SF":         131.08,
+"SFprice": 687424.1811565,
+"BuildType": "華廈" 
+},
+{
+ "SF":         234.08,
+"SFprice": 700589.9705015,
+"BuildType": "華廈" 
+},
+{
+ "SF":         164.56,
+"SFprice": 1445211.389129,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         107.97,
+"SFprice": 492287.4958976,
+"BuildType": "公寓" 
+},
+{
+ "SF":         173.38,
+"SFprice": 2936454.849498,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          81.27,
+"SFprice": 502040.8163265,
+"BuildType": "公寓" 
+},
+{
+ "SF":          64.19,
+"SFprice": 1188349.514563,
+"BuildType": "公寓" 
+},
+{
+ "SF":         145.74,
+"SFprice": 259740.2597403,
+"BuildType": "其他" 
+},
+{
+ "SF":         175.26,
+"SFprice":  1733758.46951,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         366.94,
+"SFprice": 2039580.447259,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         181.04,
+"SFprice": 2281181.619256,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         153.92,
+"SFprice": 879971.8409011,
+"BuildType": "華廈" 
+},
+{
+ "SF":          31.76,
+"SFprice": 1428571.428571,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          31.76,
+"SFprice": 1428571.428571,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          92.83,
+"SFprice": 559930.0087489,
+"BuildType": "公寓" 
+},
+{
+ "SF":         261.77,
+"SFprice": 2759381.898455,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          75.11,
+"SFprice": 355140.1869159,
+"BuildType": "公寓" 
+},
+{
+ "SF":          32.03,
+"SFprice": 1708333.333333,
+"BuildType": "其他" 
+},
+{
+ "SF":         816.63,
+"SFprice": 814215.2401935,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":             80,
+"SFprice":         531250,
+"BuildType": "公寓" 
+},
+{
+ "SF":          43.29,
+"SFprice": 2075471.698113,
+"BuildType": "套房" 
+},
+{
+ "SF":         110.12,
+"SFprice": 1878201.479795,
+"BuildType": "華廈" 
+},
+{
+ "SF":         685.69,
+"SFprice":   3803940.8867,
+"BuildType": "店面" 
+},
+{
+ "SF":         459.04,
+"SFprice":  301818.998428,
+"BuildType": "店面" 
+},
+{
+ "SF":          89.72,
+"SFprice": 198255.3528945,
+"BuildType": "公寓" 
+},
+{
+ "SF":         165.43,
+"SFprice": 777018.1030928,
+"BuildType": "華廈" 
+},
+{
+ "SF":          36.17,
+"SFprice": 2209523.809524,
+"BuildType": "其他" 
+},
+{
+ "SF":         250.13,
+"SFprice": 1233866.804337,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          183.7,
+"SFprice": 1272727.272727,
+"BuildType": "華廈" 
+},
+{
+ "SF":          64.69,
+"SFprice": 1211397.058824,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         311.88,
+"SFprice": 2954321.855235,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         116.63,
+"SFprice": 341611.4790287,
+"BuildType": "華廈" 
+},
+{
+ "SF":          65.44,
+"SFprice": 963161.4199598,
+"BuildType": "套房" 
+},
+{
+ "SF":         298.47,
+"SFprice": 2150537.634409,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          98.56,
+"SFprice": 219780.2197802,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         134.79,
+"SFprice": 502613.5906715,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         113.59,
+"SFprice": 2403343.782654,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           34.5,
+"SFprice": 1435506.241331,
+"BuildType": "套房" 
+},
+{
+ "SF":         658.34,
+"SFprice": 1577537.454113,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         106.57,
+"SFprice": 371069.1823899,
+"BuildType": "公寓" 
+},
+{
+ "SF":          39.49,
+"SFprice":        7500000,
+"BuildType": "其他" 
+},
+{
+ "SF":          88.43,
+"SFprice": 331554.1601256,
+"BuildType": "公寓" 
+},
+{
+ "SF":         277.23,
+"SFprice": 1137612.387612,
+"BuildType": "華廈" 
+},
+{
+ "SF":         262.16,
+"SFprice": 1147236.414306,
+"BuildType": "華廈" 
+},
+{
+ "SF":         369.75,
+"SFprice": 1269465.249956,
+"BuildType": "華廈" 
+},
+{
+ "SF":         104.03,
+"SFprice": 369230.7692308,
+"BuildType": "公寓" 
+},
+{
+ "SF":         118.91,
+"SFprice": 545046.4892594,
+"BuildType": "公寓" 
+},
+{
+ "SF":         120.99,
+"SFprice": 1970074.812968,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          89.54,
+"SFprice": 878661.0878661,
+"BuildType": "公寓" 
+},
+{
+ "SF":          47.64,
+"SFprice":  1758555.13308,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":             49,
+"SFprice": 4262295.081967,
+"BuildType": "套房" 
+},
+{
+ "SF":          12.09,
+"SFprice": 958717.1102662,
+"BuildType": "公寓" 
+},
+{
+ "SF":          15.17,
+"SFprice": 437317.7842566,
+"BuildType": "華廈" 
+},
+{
+ "SF":          98.17,
+"SFprice": 1544532.130778,
+"BuildType": "華廈" 
+},
+{
+ "SF":          53.19,
+"SFprice": 3522151.898734,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         131.02,
+"SFprice": 231245.0436162,
+"BuildType": "華廈" 
+},
+{
+ "SF":          59.55,
+"SFprice": 888888.8888889,
+"BuildType": "公寓" 
+},
+{
+ "SF":          65.26,
+"SFprice": 2875457.875458,
+"BuildType": "套房" 
+},
+{
+ "SF":         108.38,
+"SFprice": 647580.0954329,
+"BuildType": "公寓" 
+},
+{
+ "SF":          21.38,
+"SFprice":        5312500,
+"BuildType": "其他" 
+},
+{
+ "SF":          98.94,
+"SFprice": 872748.4020918,
+"BuildType": "其他" 
+},
+{
+ "SF":          76.24,
+"SFprice": 248058.7234043,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          96.22,
+"SFprice": 867920.3134418,
+"BuildType": "其他" 
+},
+{
+ "SF":          54.47,
+"SFprice": 942549.3716338,
+"BuildType": "套房" 
+},
+{
+ "SF":          79.14,
+"SFprice": 2111111.111111,
+"BuildType": "其他" 
+},
+{
+ "SF":          98.93,
+"SFprice": 2115131.578947,
+"BuildType": "其他" 
+},
+{
+ "SF":          83.27,
+"SFprice": 540952.3809524,
+"BuildType": "公寓" 
+},
+{
+ "SF":           3.32,
+"SFprice":        5000000,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          98.66,
+"SFprice": 1026147.015294,
+"BuildType": "華廈" 
+},
+{
+ "SF":          53.37,
+"SFprice": 1497723.823976,
+"BuildType": "套房" 
+},
+{
+ "SF":          96.15,
+"SFprice": 618051.0137345,
+"BuildType": "公寓" 
+},
+{
+ "SF":          190.7,
+"SFprice": 3667745.415318,
+"BuildType": "華廈" 
+},
+{
+ "SF":         130.61,
+"SFprice": 1781376.518219,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         146.46,
+"SFprice": 557866.6666667,
+"BuildType": "公寓" 
+},
+{
+ "SF":           24.5,
+"SFprice": 294117.6470588,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         141.16,
+"SFprice": 3353846.153846,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          51.17,
+"SFprice": 1747809.152872,
+"BuildType": "華廈" 
+},
+{
+ "SF":         171.67,
+"SFprice": 1130729.284263,
+"BuildType": "華廈" 
+},
+{
+ "SF":         185.77,
+"SFprice":  3041322.31405,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          175.4,
+"SFprice": 3663642.707606,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          42.91,
+"SFprice":        1200000,
+"BuildType": "其他" 
+},
+{
+ "SF":         389.36,
+"SFprice":  1848428.83549,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         107.43,
+"SFprice":         250000,
+"BuildType": "公寓" 
+},
+{
+ "SF":         344.41,
+"SFprice": 1344610.713511,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          65.55,
+"SFprice": 139422.7272727,
+"BuildType": "公寓" 
+},
+{
+ "SF":         152.34,
+"SFprice":  991330.569167,
+"BuildType": "華廈" 
+},
+{
+ "SF":          97.97,
+"SFprice": 861427.5421267,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          40.75,
+"SFprice": 1419431.279621,
+"BuildType": "套房" 
+},
+{
+ "SF":          77.27,
+"SFprice": 569811.3207547,
+"BuildType": "公寓" 
+},
+{
+ "SF":          73.92,
+"SFprice": 915889.0782339,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          94.27,
+"SFprice": 511527.3775216,
+"BuildType": "其他" 
+},
+{
+ "SF":          49.92,
+"SFprice":   291470.21003,
+"BuildType": "公寓" 
+},
+{
+ "SF":          80.71,
+"SFprice": 470219.4357367,
+"BuildType": "公寓" 
+},
+{
+ "SF":         135.86,
+"SFprice": 514285.7142857,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          50.64,
+"SFprice": 785973.3978235,
+"BuildType": "套房" 
+},
+{
+ "SF":         171.21,
+"SFprice": 1908866.995074,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         118.92,
+"SFprice": 1505703.422053,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         118.92,
+"SFprice": 1488321.564367,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         122.08,
+"SFprice": 1558392.178164,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          54.85,
+"SFprice": 420828.8581119,
+"BuildType": "華廈" 
+},
+{
+ "SF":         107.43,
+"SFprice": 1414835.164835,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         122.08,
+"SFprice": 1539923.954373,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          98.49,
+"SFprice":  2804878.04878,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          41.29,
+"SFprice": 3191489.361702,
+"BuildType": "其他" 
+},
+{
+ "SF":             63,
+"SFprice": 585365.8536585,
+"BuildType": "公寓" 
+},
+{
+ "SF":         105.21,
+"SFprice": 506831.2031732,
+"BuildType": "店面" 
+},
+{
+ "SF":         187.14,
+"SFprice": 1104455.071734,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          77.58,
+"SFprice": 1405236.907731,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          62.41,
+"SFprice": 2126582.278481,
+"BuildType": "套房" 
+},
+{
+ "SF":         239.72,
+"SFprice":  975975.975976,
+"BuildType": "華廈" 
+},
+{
+ "SF":          85.64,
+"SFprice": 898641.5882968,
+"BuildType": "公寓" 
+},
+{
+ "SF":          99.67,
+"SFprice": 899825.2766453,
+"BuildType": "店面" 
+},
+{
+ "SF":          44.11,
+"SFprice": 2628992.628993,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           91.7,
+"SFprice": 737007.8740157,
+"BuildType": "公寓" 
+},
+{
+ "SF":         166.37,
+"SFprice": 482861.4008942,
+"BuildType": "華廈" 
+},
+{
+ "SF":         543.04,
+"SFprice": 4144504.589315,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         540.45,
+"SFprice": 4163332.548835,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          30.79,
+"SFprice": 857142.8571429,
+"BuildType": "其他" 
+},
+{
+ "SF":          48.02,
+"SFprice": 4384615.384615,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         114.51,
+"SFprice": 375153.7515375,
+"BuildType": "公寓" 
+},
+{
+ "SF":         540.45,
+"SFprice": 4163332.548835,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          81.58,
+"SFprice": 322826.3565891,
+"BuildType": "公寓" 
+},
+{
+ "SF":          81.58,
+"SFprice": 322485.2713178,
+"BuildType": "公寓" 
+},
+{
+ "SF":          82.71,
+"SFprice": 541609.3535076,
+"BuildType": "公寓" 
+},
+{
+ "SF":          98.01,
+"SFprice": 1335631.193451,
+"BuildType": "公寓" 
+},
+{
+ "SF":          56.06,
+"SFprice": 2018927.444795,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          45.38,
+"SFprice": 368821.2927757,
+"BuildType": "公寓" 
+},
+{
+ "SF":          21.37,
+"SFprice": 1507537.688442,
+"BuildType": "套房" 
+},
+{
+ "SF":          68.25,
+"SFprice": 2123287.671233,
+"BuildType": "套房" 
+},
+{
+ "SF":          34.23,
+"SFprice": 3030303.030303,
+"BuildType": "其他" 
+},
+{
+ "SF":         207.61,
+"SFprice": 625669.5950289,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         262.14,
+"SFprice": 916353.3834586,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         129.47,
+"SFprice":  658070.253446,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          63.04,
+"SFprice": 1618677.042802,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         236.49,
+"SFprice": 628554.3250524,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           92.4,
+"SFprice": 347429.5190713,
+"BuildType": "公寓" 
+},
+{
+ "SF":         137.91,
+"SFprice": 522654.1946799,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          68.96,
+"SFprice": 308965.5172414,
+"BuildType": "公寓" 
+},
+{
+ "SF":          109.8,
+"SFprice": 611413.0434783,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          84.82,
+"SFprice":        2500000,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":           66.4,
+"SFprice":  1616294.34954,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         161.66,
+"SFprice": 760697.3058637,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          83.29,
+"SFprice": 751552.7950311,
+"BuildType": "公寓" 
+},
+{
+ "SF":          97.39,
+"SFprice": 1433305.716653,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          63.44,
+"SFprice": 654843.1105048,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         153.49,
+"SFprice": 521503.9917589,
+"BuildType": "華廈" 
+},
+{
+ "SF":         137.17,
+"SFprice": 1831069.108092,
+"BuildType": "華廈" 
+},
+{
+ "SF":          90.57,
+"SFprice": 163735.5973317,
+"BuildType": "公寓" 
+},
+{
+ "SF":         188.84,
+"SFprice": 3094157.685763,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         112.27,
+"SFprice": 490566.0377358,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         104.55,
+"SFprice": 2018656.716418,
+"BuildType": "華廈" 
+},
+{
+ "SF":         127.64,
+"SFprice": 1959038.290294,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         216.73,
+"SFprice": 2024638.457418,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         107.77,
+"SFprice": 919117.6470588,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          36.43,
+"SFprice": 241666.6666667,
+"BuildType": "公寓" 
+},
+{
+ "SF":            598,
+"SFprice": 1748093.422307,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         283.58,
+"SFprice": 781284.9787329,
+"BuildType": "華廈" 
+},
+{
+ "SF":         268.96,
+"SFprice": 737716.2629758,
+"BuildType": "華廈" 
+},
+{
+ "SF":          40.77,
+"SFprice": 370370.3703704,
+"BuildType": "華廈" 
+},
+{
+ "SF":           41.9,
+"SFprice": 568862.2754491,
+"BuildType": "華廈" 
+},
+{
+ "SF":         220.03,
+"SFprice": 1176866.173504,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          31.32,
+"SFprice": 1032911.392405,
+"BuildType": "套房" 
+},
+{
+ "SF":         198.87,
+"SFprice": 492165.8986175,
+"BuildType": "公寓" 
+},
+{
+ "SF":          54.98,
+"SFprice": 375532.3267518,
+"BuildType": "公寓" 
+},
+{
+ "SF":          80.71,
+"SFprice": 1807228.915663,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          24.27,
+"SFprice": 1478260.869565,
+"BuildType": "其他" 
+},
+{
+ "SF":         182.42,
+"SFprice": 1613563.950842,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         299.98,
+"SFprice": 2289538.569919,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          87.26,
+"SFprice": 1411616.161616,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         161.01,
+"SFprice": 1529987.760098,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          53.85,
+"SFprice":        3136000,
+"BuildType": "套房" 
+},
+{
+ "SF":          62.58,
+"SFprice": 1762032.085561,
+"BuildType": "華廈" 
+},
+{
+ "SF":          98.29,
+"SFprice": 579470.1986755,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         194.56,
+"SFprice": 1772388.059701,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          72.49,
+"SFprice": 441463.4146341,
+"BuildType": "公寓" 
+},
+{
+ "SF":          39.29,
+"SFprice": 19285714.28571,
+"BuildType": "其他" 
+},
+{
+ "SF":           82.5,
+"SFprice": 847926.2672811,
+"BuildType": "套房" 
+},
+{
+ "SF":          65.28,
+"SFprice": 394275.7009346,
+"BuildType": "公寓" 
+},
+{
+ "SF":         127.99,
+"SFprice": 760660.7760277,
+"BuildType": "華廈" 
+},
+{
+ "SF":          36.45,
+"SFprice": 17142857.14286,
+"BuildType": "其他" 
+},
+{
+ "SF":          37.23,
+"SFprice": 480769.2307692,
+"BuildType": "其他" 
+},
+{
+ "SF":         220.67,
+"SFprice": 2142574.257426,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         117.49,
+"SFprice":  387933.315692,
+"BuildType": "店面" 
+},
+{
+ "SF":          54.24,
+"SFprice": 407201.0287184,
+"BuildType": "公寓" 
+},
+{
+ "SF":          32.34,
+"SFprice": 676274.9445676,
+"BuildType": "套房" 
+},
+{
+ "SF":          16.66,
+"SFprice": 3518518.518519,
+"BuildType": "其他" 
+},
+{
+ "SF":         149.47,
+"SFprice": 848130.0813008,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         100.36,
+"SFprice": 679611.6504854,
+"BuildType": "公寓" 
+},
+{
+ "SF":             52,
+"SFprice": 744047.6190476,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           94.9,
+"SFprice": 715100.7987828,
+"BuildType": "華廈" 
+},
+{
+ "SF":          29.48,
+"SFprice": 216246.6911765,
+"BuildType": "公寓" 
+},
+{
+ "SF":          28.24,
+"SFprice": 1397306.397306,
+"BuildType": "套房" 
+},
+{
+ "SF":          70.94,
+"SFprice": 662878.7878788,
+"BuildType": "公寓" 
+},
+{
+ "SF":         168.16,
+"SFprice": 4742118.644068,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          42.37,
+"SFprice": 1286353.467562,
+"BuildType": "套房" 
+},
+{
+ "SF":         305.79,
+"SFprice": 2098321.342926,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          64.06,
+"SFprice": 3364485.981308,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         173.82,
+"SFprice": 1216216.216216,
+"BuildType": "華廈" 
+},
+{
+ "SF":          54.97,
+"SFprice": 810126.5822785,
+"BuildType": "公寓" 
+},
+{
+ "SF":          66.86,
+"SFprice": 1218562.874251,
+"BuildType": "華廈" 
+},
+{
+ "SF":         212.45,
+"SFprice": 1949317.738791,
+"BuildType": "店面" 
+},
+{
+ "SF":           44.7,
+"SFprice": 2099322.799097,
+"BuildType": "套房" 
+},
+{
+ "SF":          66.18,
+"SFprice": 2990990.990991,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":        1210.74,
+"SFprice": 633743.8718163,
+"BuildType": "廠辦" 
+},
+{
+ "SF":         174.35,
+"SFprice": 1335333.833458,
+"BuildType": "華廈" 
+},
+{
+ "SF":          82.28,
+"SFprice":  1589453.86064,
+"BuildType": "華廈" 
+},
+{
+ "SF":        1304.14,
+"SFprice": 926847.7028559,
+"BuildType": "廠辦" 
+},
+{
+ "SF":         636.44,
+"SFprice": 923255.8139535,
+"BuildType": "廠辦" 
+},
+{
+ "SF":          42.68,
+"SFprice": 310752.0198881,
+"BuildType": "華廈" 
+},
+{
+ "SF":         130.09,
+"SFprice": 1235965.746908,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           47.6,
+"SFprice":       15000000,
+"BuildType": "其他" 
+},
+{
+ "SF":          14.28,
+"SFprice": 573334.2254246,
+"BuildType": "其他" 
+},
+{
+ "SF":         400.85,
+"SFprice": 2930351.075878,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          87.36,
+"SFprice": 770833.3333333,
+"BuildType": "公寓" 
+},
+{
+ "SF":          81.73,
+"SFprice": 2768166.089965,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         153.82,
+"SFprice": 435168.7388988,
+"BuildType": "華廈" 
+},
+{
+ "SF":          48.15,
+"SFprice": 1555555.555556,
+"BuildType": "其他" 
+},
+{
+ "SF":          25.22,
+"SFprice": 1468531.468531,
+"BuildType": "套房" 
+},
+{
+ "SF":         123.35,
+"SFprice": 550759.1545103,
+"BuildType": "公寓" 
+},
+{
+ "SF":         163.59,
+"SFprice": 2121867.321867,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          15.53,
+"SFprice": 6666666.666667,
+"BuildType": "其他" 
+},
+{
+ "SF":         125.85,
+"SFprice":  374421.539756,
+"BuildType": "華廈" 
+},
+{
+ "SF":          34.63,
+"SFprice":  609756.097561,
+"BuildType": "公寓" 
+},
+{
+ "SF":          51.37,
+"SFprice": 5065963.060686,
+"BuildType": "套房" 
+},
+{
+ "SF":         129.92,
+"SFprice": 379761.0156833,
+"BuildType": "華廈" 
+},
+{
+ "SF":         594.39,
+"SFprice": 3744454.303461,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           86.8,
+"SFprice": 1191335.740072,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          63.49,
+"SFprice": 1937777.777778,
+"BuildType": "店面" 
+},
+{
+ "SF":          85.85,
+"SFprice": 224788.7323944,
+"BuildType": "公寓" 
+},
+{
+ "SF":          82.89,
+"SFprice": 678541.1365564,
+"BuildType": "華廈" 
+},
+{
+ "SF":          87.61,
+"SFprice": 584192.4398625,
+"BuildType": "公寓" 
+},
+{
+ "SF":         392.44,
+"SFprice": 1742370.194213,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         358.18,
+"SFprice": 1658008.658009,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         111.71,
+"SFprice": 1709986.320109,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          26.52,
+"SFprice": 315736.6362451,
+"BuildType": "公寓" 
+},
+{
+ "SF":           62.1,
+"SFprice": 759878.4194529,
+"BuildType": "公寓" 
+},
+{
+ "SF":         132.32,
+"SFprice": 1975128.017557,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         223.84,
+"SFprice": 899411.5998879,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         144.57,
+"SFprice": 3006299.212598,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         113.87,
+"SFprice": 1144402.829796,
+"BuildType": "華廈" 
+},
+{
+ "SF":          93.46,
+"SFprice": 3486529.318542,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          65.14,
+"SFprice": 1484716.157205,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          62.67,
+"SFprice": 2042389.210019,
+"BuildType": "其他" 
+},
+{
+ "SF":         276.94,
+"SFprice": 975869.4109297,
+"BuildType": "華廈" 
+},
+{
+ "SF":           84.7,
+"SFprice": 1111797.405806,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          40.53,
+"SFprice": 827357.2377158,
+"BuildType": "華廈" 
+},
+{
+ "SF":           2.57,
+"SFprice": 2894736.842105,
+"BuildType": "華廈" 
+},
+{
+ "SF":          31.24,
+"SFprice": 1454545.454545,
+"BuildType": "套房" 
+},
+{
+ "SF":         338.73,
+"SFprice": 2462121.212121,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         246.69,
+"SFprice": 1380674.002751,
+"BuildType": "華廈" 
+},
+{
+ "SF":          89.57,
+"SFprice": 1911468.812877,
+"BuildType": "華廈" 
+},
+{
+ "SF":         140.21,
+"SFprice": 1096093.610094,
+"BuildType": "華廈" 
+},
+{
+ "SF":         130.09,
+"SFprice": 982605.1907196,
+"BuildType": "華廈" 
+},
+{
+ "SF":          46.16,
+"SFprice": 17272727.27273,
+"BuildType": "其他" 
+},
+{
+ "SF":         283.34,
+"SFprice": 148619.3355932,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          15.13,
+"SFprice": 1477272.727273,
+"BuildType": "套房" 
+},
+{
+ "SF":         200.85,
+"SFprice": 1582911.748173,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         112.73,
+"SFprice":  2248125.42604,
+"BuildType": "華廈" 
+},
+{
+ "SF":         149.74,
+"SFprice": 1841680.129241,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         105.98,
+"SFprice": 1382667.964946,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          29.72,
+"SFprice": 281333.3333333,
+"BuildType": "公寓" 
+},
+{
+ "SF":          122.6,
+"SFprice": 2506756.756757,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         124.86,
+"SFprice":  325495.049505,
+"BuildType": "公寓" 
+},
+{
+ "SF":          96.91,
+"SFprice": 423246.9993683,
+"BuildType": "公寓" 
+},
+{
+ "SF":          103.9,
+"SFprice":   640394.08867,
+"BuildType": "公寓" 
+},
+{
+ "SF":          104.5,
+"SFprice": 1279069.767442,
+"BuildType": "公寓" 
+},
+{
+ "SF":         105.18,
+"SFprice": 483839.3731636,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          91.85,
+"SFprice":        1000000,
+"BuildType": "店面" 
+},
+{
+ "SF":          29.15,
+"SFprice": 237845.9237098,
+"BuildType": "套房" 
+},
+{
+ "SF":          93.83,
+"SFprice":         406250,
+"BuildType": "公寓" 
+},
+{
+ "SF":          73.28,
+"SFprice": 592592.5925926,
+"BuildType": "華廈" 
+},
+{
+ "SF":         114.69,
+"SFprice": 351397.9979289,
+"BuildType": "公寓" 
+},
+{
+ "SF":          159.4,
+"SFprice": 1411849.020545,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          83.27,
+"SFprice": 647536.8207212,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         264.58,
+"SFprice": 194123.0207065,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          83.05,
+"SFprice": 273530.8170091,
+"BuildType": "公寓" 
+},
+{
+ "SF":          88.34,
+"SFprice": 292492.6876828,
+"BuildType": "公寓" 
+},
+{
+ "SF":          48.92,
+"SFprice": 1017335.766423,
+"BuildType": "套房" 
+},
+{
+ "SF":          86.15,
+"SFprice": 781016.4424514,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         146.05,
+"SFprice": 563042.8271938,
+"BuildType": "公寓" 
+},
+{
+ "SF":          50.57,
+"SFprice": 1813953.488372,
+"BuildType": "套房" 
+},
+{
+ "SF":           71.1,
+"SFprice":         400000,
+"BuildType": "公寓" 
+},
+{
+ "SF":          99.89,
+"SFprice": 585126.4628162,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          37.85,
+"SFprice":        8000000,
+"BuildType": "其他" 
+},
+{
+ "SF":          55.55,
+"SFprice": 1335616.438356,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          44.46,
+"SFprice": 992063.4920635,
+"BuildType": "套房" 
+},
+{
+ "SF":         112.93,
+"SFprice":  4629629.62963,
+"BuildType": "其他" 
+},
+{
+ "SF":          33.71,
+"SFprice": 627634.6604215,
+"BuildType": "其他" 
+},
+{
+ "SF":          67.43,
+"SFprice": 651515.1515152,
+"BuildType": "其他" 
+},
+{
+ "SF":          26.24,
+"SFprice": 1497797.356828,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":         119.52,
+"SFprice": 713153.7242472,
+"BuildType": "華廈" 
+},
+{
+ "SF":          34.95,
+"SFprice": 674242.4242424,
+"BuildType": "其他" 
+},
+{
+ "SF":          35.35,
+"SFprice":  655737.704918,
+"BuildType": "其他" 
+},
+{
+ "SF":          46.78,
+"SFprice": 2583941.605839,
+"BuildType": "套房" 
+},
+{
+ "SF":         218.71,
+"SFprice": 1298966.339783,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         220.04,
+"SFprice":  1237817.79661,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          31.07,
+"SFprice": 998043.0528376,
+"BuildType": "套房" 
+},
+{
+ "SF":         228.73,
+"SFprice":  1066980.89804,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           1.86,
+"SFprice":       13750000,
+"BuildType": "其他" 
+},
+{
+ "SF":          52.09,
+"SFprice": 966473.9884393,
+"BuildType": "套房" 
+},
+{
+ "SF":         139.01,
+"SFprice": 2019099.590723,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         135.03,
+"SFprice": 1070090.957731,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          59.72,
+"SFprice": 477777.7777778,
+"BuildType": "公寓" 
+},
+{
+ "SF":          64.49,
+"SFprice": 522648.0836237,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         155.04,
+"SFprice": 554257.8042047,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          80.38,
+"SFprice": 925414.3646409,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          61.65,
+"SFprice": 1157894.736842,
+"BuildType": "套房" 
+},
+{
+ "SF":         366.94,
+"SFprice": 1979022.362953,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         124.83,
+"SFprice": 673629.2428198,
+"BuildType": "華廈" 
+},
+{
+ "SF":          46.22,
+"SFprice": 909090.9090909,
+"BuildType": "套房" 
+},
+{
+ "SF":           94.8,
+"SFprice": 754906.8948163,
+"BuildType": "華廈" 
+},
+{
+ "SF":         127.97,
+"SFprice": 813238.7706856,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          55.45,
+"SFprice": 1102756.892231,
+"BuildType": "套房" 
+},
+{
+ "SF":          24.91,
+"SFprice": 7738095.238095,
+"BuildType": "其他" 
+},
+{
+ "SF":           2.38,
+"SFprice":       30000000,
+"BuildType": "其他" 
+},
+{
+ "SF":         130.09,
+"SFprice": 1236917.221694,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         109.48,
+"SFprice": 1647727.272727,
+"BuildType": "店面" 
+},
+{
+ "SF":         114.37,
+"SFprice":  436121.919585,
+"BuildType": "公寓" 
+},
+{
+ "SF":          59.52,
+"SFprice": 945455.3110048,
+"BuildType": "辦公商業大樓" 
+},
+{
+ "SF":          79.75,
+"SFprice": 517857.1428571,
+"BuildType": "公寓" 
+},
+{
+ "SF":         114.37,
+"SFprice":   684079.60199,
+"BuildType": "公寓" 
+},
+{
+ "SF":          51.59,
+"SFprice": 193105.7142857,
+"BuildType": "公寓" 
+},
+{
+ "SF":          95.49,
+"SFprice": 405507.3557148,
+"BuildType": "公寓" 
+},
+{
+ "SF":         142.77,
+"SFprice": 389908.2568807,
+"BuildType": "華廈" 
+},
+{
+ "SF":         108.94,
+"SFprice": 387596.8992248,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         177.99,
+"SFprice": 1749049.429658,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          73.88,
+"SFprice": 617560.9756098,
+"BuildType": "公寓" 
+},
+{
+ "SF":         187.04,
+"SFprice": 671405.4927302,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          91.69,
+"SFprice": 199771.3632466,
+"BuildType": "公寓" 
+},
+{
+ "SF":          114.6,
+"SFprice": 373563.2183908,
+"BuildType": "公寓" 
+},
+{
+ "SF":         124.73,
+"SFprice": 1352007.057786,
+"BuildType": "華廈" 
+},
+{
+ "SF":         113.07,
+"SFprice": 1167883.211679,
+"BuildType": "公寓" 
+},
+{
+ "SF":          94.23,
+"SFprice": 366197.1830986,
+"BuildType": "公寓" 
+},
+{
+ "SF":           35.2,
+"SFprice": 3725165.562914,
+"BuildType": "套房" 
+},
+{
+ "SF":         129.43,
+"SFprice": 1268391.679351,
+"BuildType": "華廈" 
+},
+{
+ "SF":         162.72,
+"SFprice": 828521.2151644,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           68.4,
+"SFprice": 153400.6288267,
+"BuildType": "透天厝" 
+},
+{
+ "SF":         103.08,
+"SFprice": 303333.3333333,
+"BuildType": "公寓" 
+},
+{
+ "SF":         110.85,
+"SFprice": 780978.8267963,
+"BuildType": "公寓" 
+},
+{
+ "SF":          43.07,
+"SFprice": 973236.0097324,
+"BuildType": "公寓" 
+},
+{
+ "SF":         144.63,
+"SFprice": 2864583.333333,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          42.57,
+"SFprice": 1773533.424284,
+"BuildType": "套房" 
+},
+{
+ "SF":         118.02,
+"SFprice": 357059.5099183,
+"BuildType": "公寓" 
+},
+{
+ "SF":          89.92,
+"SFprice":  559686.888454,
+"BuildType": "公寓" 
+},
+{
+ "SF":         115.85,
+"SFprice": 290322.5806452,
+"BuildType": "公寓" 
+},
+{
+ "SF":         239.85,
+"SFprice": 280898.8764045,
+"BuildType": "公寓" 
+},
+{
+ "SF":          88.79,
+"SFprice": 78383.47826087,
+"BuildType": "公寓" 
+},
+{
+ "SF":         110.48,
+"SFprice": 299145.2991453,
+"BuildType": "公寓" 
+},
+{
+ "SF":          63.94,
+"SFprice": 874021.3523132,
+"BuildType": "套房" 
+},
+{
+ "SF":         283.01,
+"SFprice": 751693.3751859,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           79.3,
+"SFprice": 337078.6516854,
+"BuildType": "公寓" 
+},
+{
+ "SF":          50.49,
+"SFprice": 3333333.333333,
+"BuildType": "店面" 
+},
+{
+ "SF":         115.11,
+"SFprice": 1075757.575758,
+"BuildType": "華廈" 
+},
+{
+ "SF":         189.68,
+"SFprice": 376249.2651382,
+"BuildType": "華廈" 
+},
+{
+ "SF":          29.48,
+"SFprice": 341588.3859949,
+"BuildType": "套房" 
+},
+{
+ "SF":          88.73,
+"SFprice": 372881.3559322,
+"BuildType": "公寓" 
+},
+{
+ "SF":          75.16,
+"SFprice": 417821.7821782,
+"BuildType": "公寓" 
+},
+{
+ "SF":          50.13,
+"SFprice": 284431.1377246,
+"BuildType": "套房" 
+},
+{
+ "SF":         161.27,
+"SFprice": 221254.0253836,
+"BuildType": "透天厝" 
+},
+{
+ "SF":          67.31,
+"SFprice":  864553.314121,
+"BuildType": "華廈" 
+},
+{
+ "SF":          40.34,
+"SFprice": 1324155.193992,
+"BuildType": "套房" 
+},
+{
+ "SF":         168.91,
+"SFprice": 711361.3101331,
+"BuildType": "華廈" 
+},
+{
+ "SF":         299.94,
+"SFprice": 1513317.191283,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         206.57,
+"SFprice": 907972.4409449,
+"BuildType": "華廈" 
+},
+{
+ "SF":           26.5,
+"SFprice": 3884615.384615,
+"BuildType": "其他" 
+},
+{
+ "SF":           26.5,
+"SFprice": 3846153.846154,
+"BuildType": "其他" 
+},
+{
+ "SF":          42.11,
+"SFprice":  2188365.65097,
+"BuildType": "套房" 
+},
+{
+ "SF":          76.49,
+"SFprice": 508421.0526316,
+"BuildType": "公寓" 
+},
+{
+ "SF":         132.13,
+"SFprice": 1040525.739321,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         299.94,
+"SFprice": 1412429.378531,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":            112,
+"SFprice":        1425000,
+"BuildType": "華廈" 
+},
+{
+ "SF":          38.98,
+"SFprice": 1979949.874687,
+"BuildType": "套房" 
+},
+{
+ "SF":         114.73,
+"SFprice": 1186297.854077,
+"BuildType": "店面" 
+},
+{
+ "SF":          36.13,
+"SFprice": 1487804.878049,
+"BuildType": "套房" 
+},
+{
+ "SF":            105,
+"SFprice": 1075471.698113,
+"BuildType": "店面" 
+},
+{
+ "SF":          43.56,
+"SFprice": 2896373.056995,
+"BuildType": "套房" 
+},
+{
+ "SF":          49.28,
+"SFprice": 973154.3624161,
+"BuildType": "套房" 
+},
+{
+ "SF":          33.57,
+"SFprice": 1757105.943152,
+"BuildType": "華廈" 
+},
+{
+ "SF":          76.08,
+"SFprice": 2971061.093248,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         238.03,
+"SFprice": 2597402.597403,
+"BuildType": "店面" 
+},
+{
+ "SF":         136.52,
+"SFprice": 1063944.116067,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":           2.27,
+"SFprice": 10909090.90909,
+"BuildType": "其他" 
+},
+{
+ "SF":         118.89,
+"SFprice": 585852.2904332,
+"BuildType": "華廈" 
+},
+{
+ "SF":         137.19,
+"SFprice": 501367.3655424,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          60.36,
+"SFprice": 512210.3944897,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          288.2,
+"SFprice": 4084948.101831,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          77.11,
+"SFprice": 624778.7610619,
+"BuildType": "公寓" 
+},
+{
+ "SF":           27.8,
+"SFprice": 1160409.556314,
+"BuildType": "套房" 
+},
+{
+ "SF":          53.37,
+"SFprice": 388732.3943662,
+"BuildType": "公寓" 
+},
+{
+ "SF":         214.67,
+"SFprice": 976338.1575925,
+"BuildType": "華廈" 
+},
+{
+ "SF":         148.09,
+"SFprice": 458221.0242588,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":         192.38,
+"SFprice": 560994.5609946,
+"BuildType": "住宅大樓" 
+},
+{
+ "SF":          31.99,
+"SFprice": 5555555.555556,
+"BuildType": "其他" 
+},
+{
+ "SF":          93.34,
+"SFprice": 868263.4730539,
+"BuildType": "華廈" 
+},
+{
+ "SF":          43.47,
+"SFprice": 3186440.677966,
+"BuildType": "其他" 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>
